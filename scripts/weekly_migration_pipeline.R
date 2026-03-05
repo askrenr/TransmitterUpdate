@@ -9,6 +9,7 @@
 #   docs/data/weekly_summary.json
 #   docs/weekly_status.md
 #
+#
 # Requirements:
 #   - MOVEBANK_USER, MOVEBANK_PASS (or MOVEBANK_PASSWORD) in env
 #   - R packages: move, dplyr, lubridate, sf, rnaturalearth, jsonlite, readr, stringr
