@@ -3,7 +3,7 @@ name: Weekly migration update
 on:
   schedule:
     # Mondays at 12:15 UTC (~6:15am Central during standard time)
-    - cron: "15 12 * * 1"
+    - cron: "15 12 * *"
   workflow_dispatch:
 
 jobs:
