@@ -1,0 +1,162 @@
+{
+  "window_start_utc": "2026-03-04 14:18:21 UTC",
+  "window_end_utc": "2026-03-11 14:18:21 UTC",
+  "n_devices": 48,
+  "n_fixes": 7134,
+  "overall_state_province": [
+    {
+      "state_province": "Missouri",
+      "n_fixes": 2464,
+      "prop": 0.3454,
+      "window_start_utc": "2026-03-04 14:18:21",
+      "window_end_utc": "2026-03-11 14:18:21"
+    },
+    {
+      "state_province": "Arkansas",
+      "n_fixes": 2334,
+      "prop": 0.3272,
+      "window_start_utc": "2026-03-04 14:18:21",
+      "window_end_utc": "2026-03-11 14:18:21"
+    },
+    {
+      "state_province": "Illinois",
+      "n_fixes": 728,
+      "prop": 0.102,
+      "window_start_utc": "2026-03-04 14:18:21",
+      "window_end_utc": "2026-03-11 14:18:21"
+    },
+    {
+      "state_province": "Iowa",
+      "n_fixes": 442,
+      "prop": 0.062,
+      "window_start_utc": "2026-03-04 14:18:21",
+      "window_end_utc": "2026-03-11 14:18:21"
+    },
+    {
+      "state_province": "Mississippi",
+      "n_fixes": 409,
+      "prop": 0.0573,
+      "window_start_utc": "2026-03-04 14:18:21",
+      "window_end_utc": "2026-03-11 14:18:21"
+    },
+    {
+      "state_province": "Kentucky",
+      "n_fixes": 159,
+      "prop": 0.0223,
+      "window_start_utc": "2026-03-04 14:18:21",
+      "window_end_utc": "2026-03-11 14:18:21"
+    },
+    {
+      "state_province": "Louisiana",
+      "n_fixes": 156,
+      "prop": 0.0219,
+      "window_start_utc": "2026-03-04 14:18:21",
+      "window_end_utc": "2026-03-11 14:18:21"
+    },
+    {
+      "state_province": "Minnesota",
+      "n_fixes": 155,
+      "prop": 0.0217,
+      "window_start_utc": "2026-03-04 14:18:21",
+      "window_end_utc": "2026-03-11 14:18:21"
+    },
+    {
+      "state_province": "Oklahoma",
+      "n_fixes": 155,
+      "prop": 0.0217,
+      "window_start_utc": "2026-03-04 14:18:21",
+      "window_end_utc": "2026-03-11 14:18:21"
+    },
+    {
+      "state_province": "Nebraska",
+      "n_fixes": 84,
+      "prop": 0.0118,
+      "window_start_utc": "2026-03-04 14:18:21",
+      "window_end_utc": "2026-03-11 14:18:21"
+    },
+    {
+      "state_province": "South Dakota",
+      "n_fixes": 28,
+      "prop": 0.0039,
+      "window_start_utc": "2026-03-04 14:18:21",
+      "window_end_utc": "2026-03-11 14:18:21"
+    },
+    {
+      "state_province": "Wisconsin",
+      "n_fixes": 20,
+      "prop": 0.0028,
+      "window_start_utc": "2026-03-04 14:18:21",
+      "window_end_utc": "2026-03-11 14:18:21"
+    }
+  ],
+  "migration_status": [
+    {
+      "migration_status": "Local",
+      "n": 28,
+      "prop": 0.5833
+    },
+    {
+      "migration_status": "Transitional",
+      "n": 3,
+      "prop": 0.0625
+    },
+    {
+      "migration_status": "Migrating",
+      "n": 17,
+      "prop": 0.3542
+    }
+  ],
+  "leaders": [
+    {
+      "device_id": "247414",
+      "n_fixes": 159,
+      "start_time": "2026-03-04 14:23:27",
+      "end_time": "2026-03-11 04:23:10",
+      "start_lon": -93.4395,
+      "start_lat": 38.4151,
+      "end_lon": -98.591,
+      "end_lat": 43.8574,
+      "net_km": 742.8487,
+      "lat_change": 5.4423,
+      "max_lat": 43.8775,
+      "min_lat": 38.4055,
+      "top_state": "Nebraska",
+      "top_state_prop": 0.4717,
+      "migration_status": "Migrating"
+    },
+    {
+      "device_id": "377540",
+      "n_fixes": 164,
+      "start_time": "2026-03-04 14:18:23",
+      "end_time": "2026-03-11 12:18:05",
+      "start_lon": -91.5568,
+      "start_lat": 34.4044,
+      "end_lon": -93.1564,
+      "end_lat": 40.3231,
+      "net_km": 673.1053,
+      "lat_change": 5.9187,
+      "max_lat": 40.3452,
+      "min_lat": 34.3637,
+      "top_state": "Missouri",
+      "top_state_prop": 0.7805,
+      "migration_status": "Migrating"
+    },
+    {
+      "device_id": "377513",
+      "n_fixes": 161,
+      "start_time": "2026-03-04 14:52:05",
+      "end_time": "2026-03-11 06:52:04",
+      "start_lon": -93.6865,
+      "start_lat": 38.0915,
+      "end_lon": -95.619,
+      "end_lat": 43.8115,
+      "net_km": 656.3573,
+      "lat_change": 5.72,
+      "max_lat": 43.8164,
+      "min_lat": 38.0675,
+      "top_state": "Missouri",
+      "top_state_prop": 0.6832,
+      "migration_status": "Migrating"
+    }
+  ]
+}
