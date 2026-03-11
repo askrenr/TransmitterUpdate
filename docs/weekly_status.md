@@ -1,14 +1,14 @@
 # Weekly Mallard Migration Status
 
 **Window:** 2026-03-04 to 2026-03-11 (UTC)
-**Transmitters reporting:** 48  |  **GPS fixes:** 7,134
+**Transmitters reporting:** 48  |  **GPS fixes:** 6,999
 
 ## State/Province distribution (all fixes)
 
-- Missouri: 34.5%
-- - Arkansas: 32.7%
-- - Illinois: 10.2%
-- - Iowa: 6.2%
+- Missouri: 35.1%
+- - Arkansas: 32.2%
+- - Illinois: 10.1%
+- - Iowa: 6.3%
 - - Mississippi: 5.7%
 - - Kentucky: 2.2%
 
