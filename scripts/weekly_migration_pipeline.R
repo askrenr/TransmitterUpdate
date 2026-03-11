@@ -9,6 +9,10 @@
 #   docs/data/weekly_summary.json
 #   docs/weekly_status.md
 #
+# Updated:
+#   - State/province proportions now represent the percent of
+#     transmitters/individuals currently located in each state/province
+#     based on each device's most recent GPS fix in the weekly window.
 #
 # Requirements:
 #   - MOVEBANK_USER, MOVEBANK_PASS (or MOVEBANK_PASSWORD) in env
@@ -70,9 +74,8 @@ mv <- move::getMovebankData(
 
 df <- as.data.frame(mv)
 colnames(df)
+
 # Normalize key columns across Movebank exports
-# Common fields: location.long, location.lat, timestamp, individual.local.identifier, tag.local.identifier
-# Your file may have Longitude/Latitude; this script handles Movebank defaults.
 col_map <- list(
   lon = c("location_long", "longitude", "Longitude", "lon", "LONGITUDE"),
   lat = c("location_lat",  "latitude",  "Latitude",  "lat", "LATITUDE"),
@@ -98,7 +101,6 @@ if (is.na(lon_col) || is.na(lat_col) || is.na(ts_col)) {
 }
 
 if (is.na(tag_col)) {
-  # fall back: use individual id if tag id missing
   tag_col <- ind_col
 }
 if (is.na(tag_col)) stop("Could not find a transmitter identifier column (tag/local identifier).")
@@ -121,17 +123,14 @@ if (nrow(gps) == 0) stop("No GPS records returned for the last 7 days.")
 # ----------------------------
 pts <- st_as_sf(gps, coords = c("lon", "lat"), crs = 4326, remove = FALSE)
 
-# US + Canada admin1 polygons (states/provinces)
 admin1 <- rnaturalearth::ne_states(
   country = c("United States of America", "Canada"),
   returnclass = "sf"
 )
 
-# keep only relevant fields; 'name' is state/province; 'postal' exists for many US states
 admin1 <- admin1 %>%
   select(name, postal, iso_a2, geonunit, iso_3166_2)
 
-# spatial join
 pts_admin <- st_join(pts, admin1, left = TRUE, largest = TRUE)
 
 gps_admin <- pts_admin %>%
@@ -142,24 +141,45 @@ gps_admin <- pts_admin %>%
   )
 
 # ----------------------------
-# 3) Proportions by state/province (overall + per device)
+# 3) Current state/province by device (latest fix only)
 # ----------------------------
-overall_props <- gps_admin %>%
-  count(state_province, sort = TRUE, name = "n_fixes") %>%
-  mutate(prop = n_fixes / sum(n_fixes)) %>%
-  mutate(window_start_utc = start_utc, window_end_utc = now_utc)
-
-device_props <- gps_admin %>%
-  count(device_id, state_province, name = "n_fixes") %>%
+device_current <- gps_admin %>%
   group_by(device_id) %>%
-  mutate(prop = n_fixes / sum(n_fixes)) %>%
+  arrange(timestamp, .by_group = TRUE) %>%
+  slice_tail(n = 1) %>%
   ungroup() %>%
-  arrange(device_id, desc(n_fixes))
+  mutate(
+    window_start_utc = start_utc,
+    window_end_utc   = now_utc
+  )
+
+# overall proportions = percent of devices currently in each state/province
+overall_props <- device_current %>%
+  count(state_province, sort = TRUE, name = "n_devices") %>%
+  mutate(
+    prop = n_devices / sum(n_devices),
+    window_start_utc = start_utc,
+    window_end_utc = now_utc
+  )
+
+# export one row per device showing its current state/province
+device_props <- device_current %>%
+  select(
+    device_id,
+    individual_id,
+    timestamp,
+    lon,
+    lat,
+    state_province,
+    state_abbrev,
+    window_start_utc,
+    window_end_utc
+  ) %>%
+  arrange(state_province, device_id)
 
 # ----------------------------
 # 4) Migration metrics per device
 # ----------------------------
-# Helper: haversine distance (km)
 haversine_km <- function(lon1, lat1, lon2, lat2) {
   to_rad <- function(x) x * pi/180
   R <- 6371.0088
@@ -191,6 +211,8 @@ dev_metrics <- gps_admin %>%
       tab <- table(state_province)
       as.numeric(max(tab) / sum(tab))
     },
+    current_state = state_province[which.max(timestamp)],
+    current_state_abbrev = state_abbrev[which.max(timestamp)],
     .groups = "drop"
   ) %>%
   mutate(
@@ -208,7 +230,7 @@ dev_metrics <- gps_admin %>%
 fmt_pct <- function(x) paste0(round(100 * x, 1), "%")
 fmt_km  <- function(x) format(round(x), big.mark = ",")
 
-n_devices <- n_distinct(gps_admin$device_id)
+n_devices <- n_distinct(device_current$device_id)
 n_fixes   <- nrow(gps_admin)
 
 status_counts <- dev_metrics %>%
@@ -218,7 +240,6 @@ status_counts <- dev_metrics %>%
 
 top_states <- overall_props %>% slice_head(n = 6)
 
-# "Leading edge" = top 3 net distance devices
 leaders <- dev_metrics %>% slice_head(n = min(3, nrow(dev_metrics)))
 
 window_str <- paste0(
@@ -226,17 +247,17 @@ window_str <- paste0(
   " (UTC)"
 )
 
-# Compose markdown narrative
 md <- c(
   "# Weekly Mallard Migration Status",
   "",
   paste0("**Window:** ", window_str),
   paste0("**Transmitters reporting:** ", n_devices, "  |  **GPS fixes:** ", format(n_fixes, big.mark = ",")),
   "",
-  "## State/Province distribution (all fixes)",
+  "## Current state/province distribution (latest fix per transmitter)",
   "",
   paste0(
-    "- ", paste0(top_states$state_province, ": ", fmt_pct(top_states$prop)), collapse = "\n- "
+    "- ", paste0(top_states$state_province, ": ", fmt_pct(top_states$prop), " (n=", top_states$n_devices, ")"),
+    collapse = "\n"
   ),
   "",
   "## Migration status (by transmitter)",
@@ -249,6 +270,7 @@ md <- c(
   "## Notes",
   "",
   paste0(
+    "State/province percentages below reflect the **current location of each transmitter** based on its most recent GPS fix within the last 7 days, rather than the full number of GPS fixes collected. ",
     "Most transmitters continue to show **local late-winter movements** within their primary wintering areas. ",
     "A subset of birds are showing **transitional behavior** (larger net displacement without strong latitudinal gain), ",
     "and the **leading edge of spring migration** is evident among birds with substantial northward movement over the last week."
@@ -258,7 +280,8 @@ md <- c(
   "",
   paste0(
     "- ", leaders$device_id,
-    ": **", fmt_km(leaders$net_km), " km** net, lat change **", round(leaders$lat_change, 2), "°**, top admin area **", leaders$top_state, "**",
+    ": **", fmt_km(leaders$net_km), " km** net, lat change **", round(leaders$lat_change, 2),
+    "°**, current admin area **", leaders$current_state, "**",
     collapse = "\n"
   ),
   ""
@@ -272,13 +295,13 @@ write_csv(device_props,  file.path(out_dir_data, "device_state_province.csv"))
 write_csv(dev_metrics,   file.path(out_dir_data, "device_migration_metrics.csv"))
 writeLines(md, out_md)
 
-# JSON summary for dashboards
 json_out <- list(
   window_start_utc = format(start_utc, tz = "UTC", usetz = TRUE),
   window_end_utc   = format(now_utc, tz = "UTC", usetz = TRUE),
   n_devices = n_devices,
   n_fixes   = n_fixes,
   overall_state_province = overall_props,
+  current_device_locations = device_props,
   migration_status = status_counts,
   leaders = leaders
 )
