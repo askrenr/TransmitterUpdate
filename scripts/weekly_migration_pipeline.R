@@ -5,12 +5,11 @@ suppressPackageStartupMessages({
   library(dplyr)
   library(lubridate)
   library(sf)
-  library(rnaturalearth)
+  library(maps)
   library(jsonlite)
   library(readr)
   library(stringr)
-  install.packages(c("pak", "rnaturalearth", "rnaturalearthdata"))
-  pak::pak("ropensci/rnaturalearthhires")
+  library(tibble)
 })
 
 # ----------------------------
@@ -101,23 +100,112 @@ if (nrow(gps) == 0) {
 }
 
 # ----------------------------
-# 3) Assign state/province
+# 3) Assign state/province using maps package
 # ----------------------------
+
+# Convert GPS points to sf
 pts <- st_as_sf(gps, coords = c("lon", "lat"), crs = 4326, remove = FALSE)
 
-admin1 <- rnaturalearth::ne_states(
-  country = c("United States of America", "Canada"),
-  returnclass = "sf"
-) %>%
-  select(name, postal, iso_a2, geonunit, iso_3166_2)
+# Build admin polygons from maps::map("world")
+world_map <- maps::map("world", fill = TRUE, plot = FALSE)
 
+admin1_raw <- sf::st_as_sf(world_map)
+
+# The maps package stores region names in IDs like:
+# "USA:Arkansas" or "Canada:Ontario"
+admin1 <- admin1_raw %>%
+  mutate(ID = as.character(ID)) %>%
+  filter(str_detect(ID, "^(USA|Canada):")) %>%
+  mutate(
+    country = str_extract(ID, "^[^:]+"),
+    name = str_replace(ID, "^[^:]+:", ""),
+    name = str_replace_all(name, "_", " ")
+  ) %>%
+  select(country, name, geometry)
+
+# State/province abbreviation lookup
+admin_lookup <- tribble(
+  ~country,  ~name,                      ~state_abbrev,
+  "USA",     "Alabama",                  "AL",
+  "USA",     "Alaska",                   "AK",
+  "USA",     "Arizona",                  "AZ",
+  "USA",     "Arkansas",                 "AR",
+  "USA",     "California",               "CA",
+  "USA",     "Colorado",                 "CO",
+  "USA",     "Connecticut",              "CT",
+  "USA",     "Delaware",                 "DE",
+  "USA",     "District of Columbia",     "DC",
+  "USA",     "Florida",                  "FL",
+  "USA",     "Georgia",                  "GA",
+  "USA",     "Hawaii",                   "HI",
+  "USA",     "Idaho",                    "ID",
+  "USA",     "Illinois",                 "IL",
+  "USA",     "Indiana",                  "IN",
+  "USA",     "Iowa",                     "IA",
+  "USA",     "Kansas",                   "KS",
+  "USA",     "Kentucky",                 "KY",
+  "USA",     "Louisiana",                "LA",
+  "USA",     "Maine",                    "ME",
+  "USA",     "Maryland",                 "MD",
+  "USA",     "Massachusetts",            "MA",
+  "USA",     "Michigan",                 "MI",
+  "USA",     "Minnesota",                "MN",
+  "USA",     "Mississippi",              "MS",
+  "USA",     "Missouri",                 "MO",
+  "USA",     "Montana",                  "MT",
+  "USA",     "Nebraska",                 "NE",
+  "USA",     "Nevada",                   "NV",
+  "USA",     "New Hampshire",            "NH",
+  "USA",     "New Jersey",               "NJ",
+  "USA",     "New Mexico",               "NM",
+  "USA",     "New York",                 "NY",
+  "USA",     "North Carolina",           "NC",
+  "USA",     "North Dakota",             "ND",
+  "USA",     "Ohio",                     "OH",
+  "USA",     "Oklahoma",                 "OK",
+  "USA",     "Oregon",                   "OR",
+  "USA",     "Pennsylvania",             "PA",
+  "USA",     "Rhode Island",             "RI",
+  "USA",     "South Carolina",           "SC",
+  "USA",     "South Dakota",             "SD",
+  "USA",     "Tennessee",                "TN",
+  "USA",     "Texas",                    "TX",
+  "USA",     "Utah",                     "UT",
+  "USA",     "Vermont",                  "VT",
+  "USA",     "Virginia",                 "VA",
+  "USA",     "Washington",               "WA",
+  "USA",     "West Virginia",            "WV",
+  "USA",     "Wisconsin",                "WI",
+  "USA",     "Wyoming",                  "WY",
+  "Canada",  "Alberta",                  "AB",
+  "Canada",  "British Columbia",         "BC",
+  "Canada",  "Manitoba",                 "MB",
+  "Canada",  "New Brunswick",            "NB",
+  "Canada",  "Newfoundland",             "NL",
+  "Canada",  "Labrador",                 "NL",
+  "Canada",  "Newfoundland and Labrador","NL",
+  "Canada",  "Nova Scotia",              "NS",
+  "Canada",  "Ontario",                  "ON",
+  "Canada",  "Prince Edward Island",     "PE",
+  "Canada",  "Quebec",                   "QC",
+  "Canada",  "Saskatchewan",             "SK",
+  "Canada",  "Northwest Territories",    "NT",
+  "Canada",  "Nunavut",                  "NU",
+  "Canada",  "Yukon",                    "YT",
+  "Canada",  "Yukon Territory",          "YT"
+)
+
+admin1 <- admin1 %>%
+  left_join(admin_lookup, by = c("country", "name"))
+
+# Join points to admin polygons
 pts_admin <- st_join(pts, admin1, left = TRUE, largest = TRUE)
 
 gps_admin <- pts_admin %>%
   st_drop_geometry() %>%
   mutate(
     state_province = if_else(!is.na(name), name, "Unknown"),
-    state_abbrev   = postal
+    state_abbrev   = state_abbrev
   )
 
 # ----------------------------
@@ -263,7 +351,6 @@ md <- c(
   ""
 )
 
-md
 # ----------------------------
 # 7) Write outputs
 # ----------------------------
