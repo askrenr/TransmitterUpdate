@@ -61,7 +61,7 @@ col_map <- list(
   lon = c("location_long", "longitude", "Longitude", "lon", "LONGITUDE"),
   lat = c("location_lat",  "latitude",  "Latitude",  "lat", "LATITUDE"),
   ts  = c("timestamp", "Timestamp", "time", "UTC_datetime"),
-  tag = c("tag_local_identifier"),
+  tag = c("tag_local_identifier", "tag_id", "device_id"),
   ind = c("individual.local.identifier", "individual_id", "individual", "animal_id")
 )
 
@@ -87,7 +87,7 @@ if (is.na(tag_col)) stop("Could not find a transmitter identifier column.")
 gps <- df %>%
   transmute(
     device_id = as.character(.data[[tag_col]]),
-    individual_id = if (is.na(ind_col)) NA_character_ else as.character(.data[[ind_col]]),
+    individual_id = if (!is.na(ind_col)) as.character(.data[[ind_col]]) else NA_character_,
     timestamp = as.POSIXct(.data[[ts_col]], tz = "UTC"),
     lon = as.numeric(.data[[lon_col]]),
     lat = as.numeric(.data[[lat_col]])
@@ -121,82 +121,86 @@ admin1 <- admin1_raw %>%
     name = str_replace(ID, "^[^:]+:", ""),
     name = str_replace_all(name, "_", " ")
   ) %>%
-  select(country, name, geometry)
+  dplyr::select(country, name)   # keep geometry automatically for sf objects
 
 # State/province abbreviation lookup
 admin_lookup <- tribble(
-  ~country,  ~name,                      ~state_abbrev,
-  "USA",     "Alabama",                  "AL",
-  "USA",     "Alaska",                   "AK",
-  "USA",     "Arizona",                  "AZ",
-  "USA",     "Arkansas",                 "AR",
-  "USA",     "California",               "CA",
-  "USA",     "Colorado",                 "CO",
-  "USA",     "Connecticut",              "CT",
-  "USA",     "Delaware",                 "DE",
-  "USA",     "District of Columbia",     "DC",
-  "USA",     "Florida",                  "FL",
-  "USA",     "Georgia",                  "GA",
-  "USA",     "Hawaii",                   "HI",
-  "USA",     "Idaho",                    "ID",
-  "USA",     "Illinois",                 "IL",
-  "USA",     "Indiana",                  "IN",
-  "USA",     "Iowa",                     "IA",
-  "USA",     "Kansas",                   "KS",
-  "USA",     "Kentucky",                 "KY",
-  "USA",     "Louisiana",                "LA",
-  "USA",     "Maine",                    "ME",
-  "USA",     "Maryland",                 "MD",
-  "USA",     "Massachusetts",            "MA",
-  "USA",     "Michigan",                 "MI",
-  "USA",     "Minnesota",                "MN",
-  "USA",     "Mississippi",              "MS",
-  "USA",     "Missouri",                 "MO",
-  "USA",     "Montana",                  "MT",
-  "USA",     "Nebraska",                 "NE",
-  "USA",     "Nevada",                   "NV",
-  "USA",     "New Hampshire",            "NH",
-  "USA",     "New Jersey",               "NJ",
-  "USA",     "New Mexico",               "NM",
-  "USA",     "New York",                 "NY",
-  "USA",     "North Carolina",           "NC",
-  "USA",     "North Dakota",             "ND",
-  "USA",     "Ohio",                     "OH",
-  "USA",     "Oklahoma",                 "OK",
-  "USA",     "Oregon",                   "OR",
-  "USA",     "Pennsylvania",             "PA",
-  "USA",     "Rhode Island",             "RI",
-  "USA",     "South Carolina",           "SC",
-  "USA",     "South Dakota",             "SD",
-  "USA",     "Tennessee",                "TN",
-  "USA",     "Texas",                    "TX",
-  "USA",     "Utah",                     "UT",
-  "USA",     "Vermont",                  "VT",
-  "USA",     "Virginia",                 "VA",
-  "USA",     "Washington",               "WA",
-  "USA",     "West Virginia",            "WV",
-  "USA",     "Wisconsin",                "WI",
-  "USA",     "Wyoming",                  "WY",
-  "Canada",  "Alberta",                  "AB",
-  "Canada",  "British Columbia",         "BC",
-  "Canada",  "Manitoba",                 "MB",
-  "Canada",  "New Brunswick",            "NB",
-  "Canada",  "Newfoundland",             "NL",
-  "Canada",  "Labrador",                 "NL",
-  "Canada",  "Newfoundland and Labrador","NL",
-  "Canada",  "Nova Scotia",              "NS",
-  "Canada",  "Ontario",                  "ON",
-  "Canada",  "Prince Edward Island",     "PE",
-  "Canada",  "Quebec",                   "QC",
-  "Canada",  "Saskatchewan",             "SK",
-  "Canada",  "Northwest Territories",    "NT",
-  "Canada",  "Nunavut",                  "NU",
-  "Canada",  "Yukon",                    "YT",
-  "Canada",  "Yukon Territory",          "YT"
+  ~country,  ~name,                       ~state_abbrev,
+  "USA",     "Alabama",                   "AL",
+  "USA",     "Alaska",                    "AK",
+  "USA",     "Arizona",                   "AZ",
+  "USA",     "Arkansas",                  "AR",
+  "USA",     "California",                "CA",
+  "USA",     "Colorado",                  "CO",
+  "USA",     "Connecticut",               "CT",
+  "USA",     "Delaware",                  "DE",
+  "USA",     "District of Columbia",      "DC",
+  "USA",     "Florida",                   "FL",
+  "USA",     "Georgia",                   "GA",
+  "USA",     "Hawaii",                    "HI",
+  "USA",     "Idaho",                     "ID",
+  "USA",     "Illinois",                  "IL",
+  "USA",     "Indiana",                   "IN",
+  "USA",     "Iowa",                      "IA",
+  "USA",     "Kansas",                    "KS",
+  "USA",     "Kentucky",                  "KY",
+  "USA",     "Louisiana",                 "LA",
+  "USA",     "Maine",                     "ME",
+  "USA",     "Maryland",                  "MD",
+  "USA",     "Massachusetts",             "MA",
+  "USA",     "Michigan",                  "MI",
+  "USA",     "Minnesota",                 "MN",
+  "USA",     "Mississippi",               "MS",
+  "USA",     "Missouri",                  "MO",
+  "USA",     "Montana",                   "MT",
+  "USA",     "Nebraska",                  "NE",
+  "USA",     "Nevada",                    "NV",
+  "USA",     "New Hampshire",             "NH",
+  "USA",     "New Jersey",                "NJ",
+  "USA",     "New Mexico",                "NM",
+  "USA",     "New York",                  "NY",
+  "USA",     "North Carolina",            "NC",
+  "USA",     "North Dakota",              "ND",
+  "USA",     "Ohio",                      "OH",
+  "USA",     "Oklahoma",                  "OK",
+  "USA",     "Oregon",                    "OR",
+  "USA",     "Pennsylvania",              "PA",
+  "USA",     "Rhode Island",              "RI",
+  "USA",     "South Carolina",            "SC",
+  "USA",     "South Dakota",              "SD",
+  "USA",     "Tennessee",                 "TN",
+  "USA",     "Texas",                     "TX",
+  "USA",     "Utah",                      "UT",
+  "USA",     "Vermont",                   "VT",
+  "USA",     "Virginia",                  "VA",
+  "USA",     "Washington",                "WA",
+  "USA",     "West Virginia",             "WV",
+  "USA",     "Wisconsin",                 "WI",
+  "USA",     "Wyoming",                   "WY",
+  "Canada",  "Alberta",                   "AB",
+  "Canada",  "British Columbia",          "BC",
+  "Canada",  "Manitoba",                  "MB",
+  "Canada",  "New Brunswick",             "NB",
+  "Canada",  "Newfoundland",              "NL",
+  "Canada",  "Labrador",                  "NL",
+  "Canada",  "Newfoundland and Labrador", "NL",
+  "Canada",  "Nova Scotia",               "NS",
+  "Canada",  "Ontario",                   "ON",
+  "Canada",  "Prince Edward Island",      "PE",
+  "Canada",  "Quebec",                    "QC",
+  "Canada",  "Saskatchewan",              "SK",
+  "Canada",  "Northwest Territories",     "NT",
+  "Canada",  "Nunavut",                   "NU",
+  "Canada",  "Yukon",                     "YT",
+  "Canada",  "Yukon Territory",           "YT"
 )
 
 admin1 <- admin1 %>%
   left_join(admin_lookup, by = c("country", "name"))
+
+# Make geometries valid just in case
+admin1 <- st_make_valid(admin1)
+pts    <- st_make_valid(pts)
 
 # Join points to admin polygons
 pts_admin <- st_join(pts, admin1, left = TRUE, largest = TRUE)
@@ -229,7 +233,7 @@ overall_props <- device_current %>%
   )
 
 device_props <- device_current %>%
-  select(
+  dplyr::select(
     device_id,
     individual_id,
     timestamp,
@@ -271,11 +275,11 @@ dev_metrics <- gps_admin %>%
     min_lat    = min(lat, na.rm = TRUE),
     top_state = {
       tab <- sort(table(state_province), decreasing = TRUE)
-      names(tab)[1]
+      if (length(tab) == 0) NA_character_ else names(tab)[1]
     },
     top_state_prop = {
       tab <- sort(table(state_province), decreasing = TRUE)
-      as.numeric(tab[1] / sum(tab))
+      if (length(tab) == 0) NA_real_ else as.numeric(tab[1] / sum(tab))
     },
     current_state = last(state_province),
     current_state_abbrev = last(state_abbrev),
@@ -319,17 +323,27 @@ md <- c(
   "",
   "## Current state/province distribution (latest fix per transmitter)",
   "",
-  paste0(
-    "- ", paste0(top_states$state_province, ": ", fmt_pct(top_states$prop), " (n=", top_states$n_devices, ")"),
-    collapse = "\n"
-  ),
+  if (nrow(top_states) > 0) {
+    paste0(
+      "- ",
+      paste0(top_states$state_province, ": ", fmt_pct(top_states$prop), " (n=", top_states$n_devices, ")"),
+      collapse = "\n"
+    )
+  } else {
+    "- No state/province assignments available."
+  },
   "",
   "## Migration status (by transmitter)",
   "",
-  paste0(
-    "- ", paste0(status_counts$migration_status, ": ", status_counts$n, " (", fmt_pct(status_counts$prop), ")"),
-    collapse = "\n"
-  ),
+  if (nrow(status_counts) > 0) {
+    paste0(
+      "- ",
+      paste0(status_counts$migration_status, ": ", status_counts$n, " (", fmt_pct(status_counts$prop), ")"),
+      collapse = "\n"
+    )
+  } else {
+    "- No migration status available."
+  },
   "",
   "## Notes",
   "",
@@ -342,12 +356,16 @@ md <- c(
   "",
   "## Leading movement this week (net displacement)",
   "",
-  paste0(
-    "- ", leaders$device_id,
-    ": **", fmt_km(leaders$net_km), " km** net, lat change **", round(leaders$lat_change, 2),
-    "°**, current admin area **", leaders$current_state, "**",
-    collapse = "\n"
-  ),
+  if (nrow(leaders) > 0) {
+    paste0(
+      "- ", leaders$device_id,
+      ": **", fmt_km(leaders$net_km), " km** net, lat change **", round(leaders$lat_change, 2),
+      "°**, current admin area **", leaders$current_state, "**",
+      collapse = "\n"
+    )
+  } else {
+    "- No leader summaries available."
+  },
   ""
 )
 
