@@ -46,15 +46,16 @@ jobs:
           pak-version: repo
           packages: |
             any::sessioninfo
-          extra-packages: |
+         extra-packages: |
             any::move
             any::dplyr
             any::lubridate
             any::sf
-            any::rnaturalearth
+            any::maps
             any::jsonlite
             any::readr
             any::stringr
+            any::tibble
 
       - name: Show session info
         run: Rscript -e 'sessionInfo()'
