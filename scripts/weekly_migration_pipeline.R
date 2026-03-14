@@ -103,7 +103,7 @@ if (nrow(gps) == 0) {
 # 3) Assign state/province using maps package
 # ----------------------------
 
-# Convert GPS points to sf
+# GPS points in WGS84
 pts <- st_as_sf(gps, coords = c("lon", "lat"), crs = 4326, remove = FALSE)
 
 # Build admin polygons from maps::map("world")
@@ -111,8 +111,21 @@ world_map <- maps::map("world", fill = TRUE, plot = FALSE)
 
 admin1_raw <- sf::st_as_sf(world_map)
 
-# The maps package stores region names in IDs like:
-# "USA:Arkansas" or "Canada:Ontario"
+# Force CRS explicitly because maps-derived sf objects may have missing CRS
+if (is.na(st_crs(admin1_raw))) {
+  st_crs(admin1_raw) <- 4326
+} else {
+  admin1_raw <- st_transform(admin1_raw, 4326)
+}
+
+# Also force points to same CRS for safety
+if (is.na(st_crs(pts))) {
+  st_crs(pts) <- 4326
+} else {
+  pts <- st_transform(pts, 4326)
+}
+
+# Parse IDs like "USA:Arkansas" or "Canada:Ontario"
 admin1 <- admin1_raw %>%
   mutate(ID = as.character(ID)) %>%
   filter(str_detect(ID, "^(USA|Canada):")) %>%
@@ -121,7 +134,7 @@ admin1 <- admin1_raw %>%
     name = str_replace(ID, "^[^:]+:", ""),
     name = str_replace_all(name, "_", " ")
   ) %>%
-  dplyr::select(country, name)   # keep geometry automatically for sf objects
+  dplyr::select(country, name)
 
 # State/province abbreviation lookup
 admin_lookup <- tribble(
@@ -198,11 +211,18 @@ admin_lookup <- tribble(
 admin1 <- admin1 %>%
   left_join(admin_lookup, by = c("country", "name"))
 
-# Make geometries valid just in case
+# Validate geometries
 admin1 <- st_make_valid(admin1)
 pts    <- st_make_valid(pts)
 
-# Join points to admin polygons
+# Final CRS safety check
+if (is.na(st_crs(admin1))) st_crs(admin1) <- 4326
+if (is.na(st_crs(pts))) st_crs(pts) <- 4326
+
+admin1 <- st_transform(admin1, 4326)
+pts    <- st_transform(pts, 4326)
+
+# Spatial join
 pts_admin <- st_join(pts, admin1, left = TRUE, largest = TRUE)
 
 gps_admin <- pts_admin %>%
@@ -315,7 +335,7 @@ window_str <- paste0(
   format(start_utc, "%Y-%m-%d"), " to ", format(now_utc, "%Y-%m-%d"), " (UTC)"
 )
 
-md <- c(
+xmd <- c(
   "# Weekly Mallard Migration Status",
   "",
   paste0("**Window:** ", window_str),
