@@ -103,29 +103,24 @@ if (nrow(gps) == 0) {
 # 3) Assign state/province using maps package
 # ----------------------------
 
-# GPS points in WGS84
 pts <- st_as_sf(gps, coords = c("lon", "lat"), crs = 4326, remove = FALSE)
 
-# Build admin polygons from maps::map("world")
 world_map <- maps::map("world", fill = TRUE, plot = FALSE)
-
 admin1_raw <- sf::st_as_sf(world_map)
 
-# Force CRS explicitly because maps-derived sf objects may have missing CRS
+# Force CRS to WGS84
 if (is.na(st_crs(admin1_raw))) {
   st_crs(admin1_raw) <- 4326
 } else {
   admin1_raw <- st_transform(admin1_raw, 4326)
 }
 
-# Also force points to same CRS for safety
 if (is.na(st_crs(pts))) {
   st_crs(pts) <- 4326
 } else {
   pts <- st_transform(pts, 4326)
 }
 
-# Parse IDs like "USA:Arkansas" or "Canada:Ontario"
 admin1 <- admin1_raw %>%
   mutate(ID = as.character(ID)) %>%
   filter(str_detect(ID, "^(USA|Canada):")) %>%
@@ -136,7 +131,6 @@ admin1 <- admin1_raw %>%
   ) %>%
   dplyr::select(country, name)
 
-# State/province abbreviation lookup
 admin_lookup <- tribble(
   ~country,  ~name,                       ~state_abbrev,
   "USA",     "Alabama",                   "AL",
@@ -211,18 +205,15 @@ admin_lookup <- tribble(
 admin1 <- admin1 %>%
   left_join(admin_lookup, by = c("country", "name"))
 
-# Validate geometries
 admin1 <- st_make_valid(admin1)
 pts    <- st_make_valid(pts)
 
-# Final CRS safety check
 if (is.na(st_crs(admin1))) st_crs(admin1) <- 4326
 if (is.na(st_crs(pts))) st_crs(pts) <- 4326
 
 admin1 <- st_transform(admin1, 4326)
 pts    <- st_transform(pts, 4326)
 
-# Spatial join
 pts_admin <- st_join(pts, admin1, left = TRUE, largest = TRUE)
 
 gps_admin <- pts_admin %>%
@@ -335,7 +326,51 @@ window_str <- paste0(
   format(start_utc, "%Y-%m-%d"), " to ", format(now_utc, "%Y-%m-%d"), " (UTC)"
 )
 
-xmd <- c(
+state_section <- if (nrow(top_states) > 0) {
+  paste0(
+    "- ",
+    top_states$state_province,
+    ": ",
+    fmt_pct(top_states$prop),
+    " (n=",
+    top_states$n_devices,
+    ")"
+  )
+} else {
+  "- No state/province assignments available."
+}
+
+status_section <- if (nrow(status_counts) > 0) {
+  paste0(
+    "- ",
+    status_counts$migration_status,
+    ": ",
+    status_counts$n,
+    " (",
+    fmt_pct(status_counts$prop),
+    ")"
+  )
+} else {
+  "- No migration status available."
+}
+
+leaders_section <- if (nrow(leaders) > 0) {
+  paste0(
+    "- ",
+    leaders$device_id,
+    ": **",
+    fmt_km(leaders$net_km),
+    " km** net, lat change **",
+    round(leaders$lat_change, 2),
+    "°**, current admin area **",
+    leaders$current_state,
+    "**"
+  )
+} else {
+  "- No leader summaries available."
+}
+
+md <- c(
   "# Weekly Mallard Migration Status",
   "",
   paste0("**Window:** ", window_str),
@@ -343,27 +378,11 @@ xmd <- c(
   "",
   "## Current state/province distribution (latest fix per transmitter)",
   "",
-  if (nrow(top_states) > 0) {
-    paste0(
-      "- ",
-      paste0(top_states$state_province, ": ", fmt_pct(top_states$prop), " (n=", top_states$n_devices, ")"),
-      collapse = "\n"
-    )
-  } else {
-    "- No state/province assignments available."
-  },
+  state_section,
   "",
   "## Migration status (by transmitter)",
   "",
-  if (nrow(status_counts) > 0) {
-    paste0(
-      "- ",
-      paste0(status_counts$migration_status, ": ", status_counts$n, " (", fmt_pct(status_counts$prop), ")"),
-      collapse = "\n"
-    )
-  } else {
-    "- No migration status available."
-  },
+  status_section,
   "",
   "## Notes",
   "",
@@ -376,16 +395,7 @@ xmd <- c(
   "",
   "## Leading movement this week (net displacement)",
   "",
-  if (nrow(leaders) > 0) {
-    paste0(
-      "- ", leaders$device_id,
-      ": **", fmt_km(leaders$net_km), " km** net, lat change **", round(leaders$lat_change, 2),
-      "°**, current admin area **", leaders$current_state, "**",
-      collapse = "\n"
-    )
-  } else {
-    "- No leader summaries available."
-  },
+  leaders_section,
   ""
 )
 
