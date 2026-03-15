@@ -66,6 +66,9 @@ jobs:
             any::readr
             any::stringr
             any::tibble
+            any::ggplot2
+            any::plotly
+            any::htmlwidgets
 
       - name: Show session info
         run: Rscript -e 'sessionInfo()'
