@@ -49,22 +49,22 @@ jobs:
 
       - name: Set up R dependencies
         uses: r-lib/actions/setup-r-dependencies@v2
-              with:
-        cache: true
-        cache-version: 2
-        pak-version: repo
-        packages: |
-          any::sessioninfo
-        extra-packages: |
-          any::move
-          any::dplyr
-          any::lubridate
-          any::sf
-          any::rnaturalearth
-          any::readr
-          any::tibble
-          any::ggplot2
-          any::plotly  # installs htmlwidgets as a dependency
+        with:
+          cache: true
+          cache-version: 2
+          pak-version: repo
+          packages: |
+            any::sessioninfo
+          extra-packages: |
+            any::move
+            any::dplyr
+            any::lubridate
+            any::sf
+            any::rnaturalearth
+            any::readr
+            any::tibble
+            any::ggplot2
+            any::plotly  # installs htmlwidgets as a dependency
 
       - name: Show session info
         run: Rscript -e 'sessionInfo()'
