@@ -60,7 +60,8 @@ jobs:
             any::dplyr
             any::lubridate
             any::sf
-            any::maps
+            any::rnaturalearth
+            any::rnaturalearthhires
             any::jsonlite
             any::readr
             any::stringr
