@@ -1,71 +1,71 @@
 {
-  "window_start_utc": "2026-02-18 13:53:50 UTC",
-  "window_end_utc": "2026-03-20 13:53:50 UTC",
+  "window_start_utc": "2026-02-18 21:41:18 UTC",
+  "window_end_utc": "2026-03-20 21:41:18 UTC",
   "n_devices": 48,
-  "n_fixes": 30774,
+  "n_fixes": 30725,
   "overall_state_province": [
     {
       "state_province": "Arkansas",
       "n_devices": 13,
       "prop": 0.2708,
-      "window_start_utc": "2026-02-18 13:53:50",
-      "window_end_utc": "2026-03-20 13:53:50"
+      "window_start_utc": "2026-02-18 21:41:18",
+      "window_end_utc": "2026-03-20 21:41:18"
     },
     {
       "state_province": "Missouri",
       "n_devices": 12,
       "prop": 0.25,
-      "window_start_utc": "2026-02-18 13:53:50",
-      "window_end_utc": "2026-03-20 13:53:50"
+      "window_start_utc": "2026-02-18 21:41:18",
+      "window_end_utc": "2026-03-20 21:41:18"
     },
     {
       "state_province": "Iowa",
       "n_devices": 8,
       "prop": 0.1667,
-      "window_start_utc": "2026-02-18 13:53:50",
-      "window_end_utc": "2026-03-20 13:53:50"
+      "window_start_utc": "2026-02-18 21:41:18",
+      "window_end_utc": "2026-03-20 21:41:18"
     },
     {
       "state_province": "Nebraska",
       "n_devices": 8,
       "prop": 0.1667,
-      "window_start_utc": "2026-02-18 13:53:50",
-      "window_end_utc": "2026-03-20 13:53:50"
+      "window_start_utc": "2026-02-18 21:41:18",
+      "window_end_utc": "2026-03-20 21:41:18"
     },
     {
       "state_province": "Illinois",
       "n_devices": 2,
       "prop": 0.0417,
-      "window_start_utc": "2026-02-18 13:53:50",
-      "window_end_utc": "2026-03-20 13:53:50"
+      "window_start_utc": "2026-02-18 21:41:18",
+      "window_end_utc": "2026-03-20 21:41:18"
     },
     {
       "state_province": "Wisconsin",
       "n_devices": 2,
       "prop": 0.0417,
-      "window_start_utc": "2026-02-18 13:53:50",
-      "window_end_utc": "2026-03-20 13:53:50"
+      "window_start_utc": "2026-02-18 21:41:18",
+      "window_end_utc": "2026-03-20 21:41:18"
     },
     {
       "state_province": "Louisiana",
       "n_devices": 1,
       "prop": 0.0208,
-      "window_start_utc": "2026-02-18 13:53:50",
-      "window_end_utc": "2026-03-20 13:53:50"
+      "window_start_utc": "2026-02-18 21:41:18",
+      "window_end_utc": "2026-03-20 21:41:18"
     },
     {
       "state_province": "Mississippi",
       "n_devices": 1,
       "prop": 0.0208,
-      "window_start_utc": "2026-02-18 13:53:50",
-      "window_end_utc": "2026-03-20 13:53:50"
+      "window_start_utc": "2026-02-18 21:41:18",
+      "window_end_utc": "2026-03-20 21:41:18"
     },
     {
       "state_province": "Oklahoma",
       "n_devices": 1,
       "prop": 0.0208,
-      "window_start_utc": "2026-02-18 13:53:50",
-      "window_end_utc": "2026-03-20 13:53:50"
+      "window_start_utc": "2026-02-18 21:41:18",
+      "window_end_utc": "2026-03-20 21:41:18"
     }
   ],
   "current_device_locations": [
@@ -77,8 +77,8 @@
       "lat": 34.4612,
       "state_province": "Arkansas",
       "state_abbrev": "AR",
-      "window_start_utc": "2026-02-18 13:53:50",
-      "window_end_utc": "2026-03-20 13:53:50"
+      "window_start_utc": "2026-02-18 21:41:18",
+      "window_end_utc": "2026-03-20 21:41:18"
     },
     {
       "device_id": "230359",
@@ -88,8 +88,8 @@
       "lat": 35.67,
       "state_province": "Arkansas",
       "state_abbrev": "AR",
-      "window_start_utc": "2026-02-18 13:53:50",
-      "window_end_utc": "2026-03-20 13:53:50"
+      "window_start_utc": "2026-02-18 21:41:18",
+      "window_end_utc": "2026-03-20 21:41:18"
     },
     {
       "device_id": "236638",
@@ -99,8 +99,8 @@
       "lat": 34.979,
       "state_province": "Arkansas",
       "state_abbrev": "AR",
-      "window_start_utc": "2026-02-18 13:53:50",
-      "window_end_utc": "2026-03-20 13:53:50"
+      "window_start_utc": "2026-02-18 21:41:18",
+      "window_end_utc": "2026-03-20 21:41:18"
     },
     {
       "device_id": "236662",
@@ -110,8 +110,8 @@
       "lat": 34.3155,
       "state_province": "Arkansas",
       "state_abbrev": "AR",
-      "window_start_utc": "2026-02-18 13:53:50",
-      "window_end_utc": "2026-03-20 13:53:50"
+      "window_start_utc": "2026-02-18 21:41:18",
+      "window_end_utc": "2026-03-20 21:41:18"
     },
     {
       "device_id": "236666",
@@ -121,8 +121,8 @@
       "lat": 34.0481,
       "state_province": "Arkansas",
       "state_abbrev": "AR",
-      "window_start_utc": "2026-02-18 13:53:50",
-      "window_end_utc": "2026-03-20 13:53:50"
+      "window_start_utc": "2026-02-18 21:41:18",
+      "window_end_utc": "2026-03-20 21:41:18"
     },
     {
       "device_id": "247419",
@@ -132,8 +132,8 @@
       "lat": 34.2649,
       "state_province": "Arkansas",
       "state_abbrev": "AR",
-      "window_start_utc": "2026-02-18 13:53:50",
-      "window_end_utc": "2026-03-20 13:53:50"
+      "window_start_utc": "2026-02-18 21:41:18",
+      "window_end_utc": "2026-03-20 21:41:18"
     },
     {
       "device_id": "377510",
@@ -143,8 +143,8 @@
       "lat": 34.6586,
       "state_province": "Arkansas",
       "state_abbrev": "AR",
-      "window_start_utc": "2026-02-18 13:53:50",
-      "window_end_utc": "2026-03-20 13:53:50"
+      "window_start_utc": "2026-02-18 21:41:18",
+      "window_end_utc": "2026-03-20 21:41:18"
     },
     {
       "device_id": "377516",
@@ -154,8 +154,8 @@
       "lat": 34.3156,
       "state_province": "Arkansas",
       "state_abbrev": "AR",
-      "window_start_utc": "2026-02-18 13:53:50",
-      "window_end_utc": "2026-03-20 13:53:50"
+      "window_start_utc": "2026-02-18 21:41:18",
+      "window_end_utc": "2026-03-20 21:41:18"
     },
     {
       "device_id": "377525",
@@ -165,19 +165,19 @@
       "lat": 34.3164,
       "state_province": "Arkansas",
       "state_abbrev": "AR",
-      "window_start_utc": "2026-02-18 13:53:50",
-      "window_end_utc": "2026-03-20 13:53:50"
+      "window_start_utc": "2026-02-18 21:41:18",
+      "window_end_utc": "2026-03-20 21:41:18"
     },
     {
       "device_id": "377529",
       "individual_id": "8163509453",
-      "timestamp": "2026-03-19 19:33:57",
-      "lon": -90.8374,
-      "lat": 36.018,
+      "timestamp": "2026-03-20 13:33:49",
+      "lon": -90.8669,
+      "lat": 36.0373,
       "state_province": "Arkansas",
       "state_abbrev": "AR",
-      "window_start_utc": "2026-02-18 13:53:50",
-      "window_end_utc": "2026-03-20 13:53:50"
+      "window_start_utc": "2026-02-18 21:41:18",
+      "window_end_utc": "2026-03-20 21:41:18"
     },
     {
       "device_id": "377531",
@@ -187,8 +187,8 @@
       "lat": 34.9822,
       "state_province": "Arkansas",
       "state_abbrev": "AR",
-      "window_start_utc": "2026-02-18 13:53:50",
-      "window_end_utc": "2026-03-20 13:53:50"
+      "window_start_utc": "2026-02-18 21:41:18",
+      "window_end_utc": "2026-03-20 21:41:18"
     },
     {
       "device_id": "377542",
@@ -198,8 +198,8 @@
       "lat": 34.738,
       "state_province": "Arkansas",
       "state_abbrev": "AR",
-      "window_start_utc": "2026-02-18 13:53:50",
-      "window_end_utc": "2026-03-20 13:53:50"
+      "window_start_utc": "2026-02-18 21:41:18",
+      "window_end_utc": "2026-03-20 21:41:18"
     },
     {
       "device_id": "377547",
@@ -209,8 +209,8 @@
       "lat": 34.6574,
       "state_province": "Arkansas",
       "state_abbrev": "AR",
-      "window_start_utc": "2026-02-18 13:53:50",
-      "window_end_utc": "2026-03-20 13:53:50"
+      "window_start_utc": "2026-02-18 21:41:18",
+      "window_end_utc": "2026-03-20 21:41:18"
     },
     {
       "device_id": "227229",
@@ -220,8 +220,8 @@
       "lat": 40.9167,
       "state_province": "Illinois",
       "state_abbrev": "IL",
-      "window_start_utc": "2026-02-18 13:53:50",
-      "window_end_utc": "2026-03-20 13:53:50"
+      "window_start_utc": "2026-02-18 21:41:18",
+      "window_end_utc": "2026-03-20 21:41:18"
     },
     {
       "device_id": "247446",
@@ -231,19 +231,19 @@
       "lat": 38.7225,
       "state_province": "Illinois",
       "state_abbrev": "IL",
-      "window_start_utc": "2026-02-18 13:53:50",
-      "window_end_utc": "2026-03-20 13:53:50"
+      "window_start_utc": "2026-02-18 21:41:18",
+      "window_end_utc": "2026-03-20 21:41:18"
     },
     {
       "device_id": "247435",
       "individual_id": "6993999506",
-      "timestamp": "2026-03-17 19:10:23",
-      "lon": -95.4197,
-      "lat": 41.2879,
+      "timestamp": "2026-03-19 19:10:44",
+      "lon": -95.3951,
+      "lat": 41.2732,
       "state_province": "Iowa",
       "state_abbrev": "IA",
-      "window_start_utc": "2026-02-18 13:53:50",
-      "window_end_utc": "2026-03-20 13:53:50"
+      "window_start_utc": "2026-02-18 21:41:18",
+      "window_end_utc": "2026-03-20 21:41:18"
     },
     {
       "device_id": "247445",
@@ -253,8 +253,8 @@
       "lat": 42.8172,
       "state_province": "Iowa",
       "state_abbrev": "IA",
-      "window_start_utc": "2026-02-18 13:53:50",
-      "window_end_utc": "2026-03-20 13:53:50"
+      "window_start_utc": "2026-02-18 21:41:18",
+      "window_end_utc": "2026-03-20 21:41:18"
     },
     {
       "device_id": "377511",
@@ -264,8 +264,8 @@
       "lat": 41.828,
       "state_province": "Iowa",
       "state_abbrev": "IA",
-      "window_start_utc": "2026-02-18 13:53:50",
-      "window_end_utc": "2026-03-20 13:53:50"
+      "window_start_utc": "2026-02-18 21:41:18",
+      "window_end_utc": "2026-03-20 21:41:18"
     },
     {
       "device_id": "377523",
@@ -275,8 +275,8 @@
       "lat": 42.5289,
       "state_province": "Iowa",
       "state_abbrev": "IA",
-      "window_start_utc": "2026-02-18 13:53:50",
-      "window_end_utc": "2026-03-20 13:53:50"
+      "window_start_utc": "2026-02-18 21:41:18",
+      "window_end_utc": "2026-03-20 21:41:18"
     },
     {
       "device_id": "377532",
@@ -286,8 +286,8 @@
       "lat": 41.5201,
       "state_province": "Iowa",
       "state_abbrev": "IA",
-      "window_start_utc": "2026-02-18 13:53:50",
-      "window_end_utc": "2026-03-20 13:53:50"
+      "window_start_utc": "2026-02-18 21:41:18",
+      "window_end_utc": "2026-03-20 21:41:18"
     },
     {
       "device_id": "377535",
@@ -297,8 +297,8 @@
       "lat": 42.5804,
       "state_province": "Iowa",
       "state_abbrev": "IA",
-      "window_start_utc": "2026-02-18 13:53:50",
-      "window_end_utc": "2026-03-20 13:53:50"
+      "window_start_utc": "2026-02-18 21:41:18",
+      "window_end_utc": "2026-03-20 21:41:18"
     },
     {
       "device_id": "377538",
@@ -308,8 +308,8 @@
       "lat": 42.0779,
       "state_province": "Iowa",
       "state_abbrev": "IA",
-      "window_start_utc": "2026-02-18 13:53:50",
-      "window_end_utc": "2026-03-20 13:53:50"
+      "window_start_utc": "2026-02-18 21:41:18",
+      "window_end_utc": "2026-03-20 21:41:18"
     },
     {
       "device_id": "377545",
@@ -319,8 +319,8 @@
       "lat": 41.7966,
       "state_province": "Iowa",
       "state_abbrev": "IA",
-      "window_start_utc": "2026-02-18 13:53:50",
-      "window_end_utc": "2026-03-20 13:53:50"
+      "window_start_utc": "2026-02-18 21:41:18",
+      "window_end_utc": "2026-03-20 21:41:18"
     },
     {
       "device_id": "377527",
@@ -330,8 +330,8 @@
       "lat": 32.0477,
       "state_province": "Louisiana",
       "state_abbrev": "LA",
-      "window_start_utc": "2026-02-18 13:53:50",
-      "window_end_utc": "2026-03-20 13:53:50"
+      "window_start_utc": "2026-02-18 21:41:18",
+      "window_end_utc": "2026-03-20 21:41:18"
     },
     {
       "device_id": "377514",
@@ -341,8 +341,8 @@
       "lat": 33.702,
       "state_province": "Mississippi",
       "state_abbrev": "MS",
-      "window_start_utc": "2026-02-18 13:53:50",
-      "window_end_utc": "2026-03-20 13:53:50"
+      "window_start_utc": "2026-02-18 21:41:18",
+      "window_end_utc": "2026-03-20 21:41:18"
     },
     {
       "device_id": "236645",
@@ -352,19 +352,19 @@
       "lat": 38.9164,
       "state_province": "Missouri",
       "state_abbrev": "MO",
-      "window_start_utc": "2026-02-18 13:53:50",
-      "window_end_utc": "2026-03-20 13:53:50"
+      "window_start_utc": "2026-02-18 21:41:18",
+      "window_end_utc": "2026-03-20 21:41:18"
     },
     {
       "device_id": "247412",
       "individual_id": "6993999480",
-      "timestamp": "2026-03-19 21:57:11",
-      "lon": -89.7012,
-      "lat": 37.3557,
+      "timestamp": "2026-03-20 15:57:34",
+      "lon": -89.6694,
+      "lat": 37.3346,
       "state_province": "Missouri",
       "state_abbrev": "MO",
-      "window_start_utc": "2026-02-18 13:53:50",
-      "window_end_utc": "2026-03-20 13:53:50"
+      "window_start_utc": "2026-02-18 21:41:18",
+      "window_end_utc": "2026-03-20 21:41:18"
     },
     {
       "device_id": "377515",
@@ -374,8 +374,8 @@
       "lat": 39.3957,
       "state_province": "Missouri",
       "state_abbrev": "MO",
-      "window_start_utc": "2026-02-18 13:53:50",
-      "window_end_utc": "2026-03-20 13:53:50"
+      "window_start_utc": "2026-02-18 21:41:18",
+      "window_end_utc": "2026-03-20 21:41:18"
     },
     {
       "device_id": "377521",
@@ -385,8 +385,8 @@
       "lat": 39.4196,
       "state_province": "Missouri",
       "state_abbrev": "MO",
-      "window_start_utc": "2026-02-18 13:53:50",
-      "window_end_utc": "2026-03-20 13:53:50"
+      "window_start_utc": "2026-02-18 21:41:18",
+      "window_end_utc": "2026-03-20 21:41:18"
     },
     {
       "device_id": "377522",
@@ -396,30 +396,30 @@
       "lat": 39.3622,
       "state_province": "Missouri",
       "state_abbrev": "MO",
-      "window_start_utc": "2026-02-18 13:53:50",
-      "window_end_utc": "2026-03-20 13:53:50"
+      "window_start_utc": "2026-02-18 21:41:18",
+      "window_end_utc": "2026-03-20 21:41:18"
     },
     {
       "device_id": "377524",
       "individual_id": "8265478842",
-      "timestamp": "2026-03-19 22:11:46",
-      "lon": -90.8644,
-      "lat": 39.3365,
+      "timestamp": "2026-03-20 16:12:05",
+      "lon": -90.8643,
+      "lat": 39.3364,
       "state_province": "Missouri",
       "state_abbrev": "MO",
-      "window_start_utc": "2026-02-18 13:53:50",
-      "window_end_utc": "2026-03-20 13:53:50"
+      "window_start_utc": "2026-02-18 21:41:18",
+      "window_end_utc": "2026-03-20 21:41:18"
     },
     {
       "device_id": "377526",
       "individual_id": "8163509449",
-      "timestamp": "2026-03-19 20:11:35",
-      "lon": -93.3385,
-      "lat": 38.6735,
+      "timestamp": "2026-03-20 14:11:11",
+      "lon": -93.3388,
+      "lat": 38.6736,
       "state_province": "Missouri",
       "state_abbrev": "MO",
-      "window_start_utc": "2026-02-18 13:53:50",
-      "window_end_utc": "2026-03-20 13:53:50"
+      "window_start_utc": "2026-02-18 21:41:18",
+      "window_end_utc": "2026-03-20 21:41:18"
     },
     {
       "device_id": "377539",
@@ -429,8 +429,8 @@
       "lat": 39.485,
       "state_province": "Missouri",
       "state_abbrev": "MO",
-      "window_start_utc": "2026-02-18 13:53:50",
-      "window_end_utc": "2026-03-20 13:53:50"
+      "window_start_utc": "2026-02-18 21:41:18",
+      "window_end_utc": "2026-03-20 21:41:18"
     },
     {
       "device_id": "377543",
@@ -440,8 +440,8 @@
       "lat": 38.277,
       "state_province": "Missouri",
       "state_abbrev": "MO",
-      "window_start_utc": "2026-02-18 13:53:50",
-      "window_end_utc": "2026-03-20 13:53:50"
+      "window_start_utc": "2026-02-18 21:41:18",
+      "window_end_utc": "2026-03-20 21:41:18"
     },
     {
       "device_id": "377544",
@@ -451,8 +451,8 @@
       "lat": 38.8003,
       "state_province": "Missouri",
       "state_abbrev": "MO",
-      "window_start_utc": "2026-02-18 13:53:50",
-      "window_end_utc": "2026-03-20 13:53:50"
+      "window_start_utc": "2026-02-18 21:41:18",
+      "window_end_utc": "2026-03-20 21:41:18"
     },
     {
       "device_id": "377546",
@@ -462,8 +462,8 @@
       "lat": 39.1991,
       "state_province": "Missouri",
       "state_abbrev": "MO",
-      "window_start_utc": "2026-02-18 13:53:50",
-      "window_end_utc": "2026-03-20 13:53:50"
+      "window_start_utc": "2026-02-18 21:41:18",
+      "window_end_utc": "2026-03-20 21:41:18"
     },
     {
       "device_id": "377549",
@@ -473,19 +473,19 @@
       "lat": 38.8003,
       "state_province": "Missouri",
       "state_abbrev": "MO",
-      "window_start_utc": "2026-02-18 13:53:50",
-      "window_end_utc": "2026-03-20 13:53:50"
+      "window_start_utc": "2026-02-18 21:41:18",
+      "window_end_utc": "2026-03-20 21:41:18"
     },
     {
       "device_id": "230381",
       "individual_id": "2679064620",
-      "timestamp": "2026-03-16 14:02:44",
-      "lon": -96.5743,
-      "lat": 41.0462,
+      "timestamp": "2026-03-20 14:01:34",
+      "lon": -96.5787,
+      "lat": 41.0466,
       "state_province": "Nebraska",
       "state_abbrev": "NE",
-      "window_start_utc": "2026-02-18 13:53:50",
-      "window_end_utc": "2026-03-20 13:53:50"
+      "window_start_utc": "2026-02-18 21:41:18",
+      "window_end_utc": "2026-03-20 21:41:18"
     },
     {
       "device_id": "247414",
@@ -495,19 +495,19 @@
       "lat": 41.9947,
       "state_province": "Nebraska",
       "state_abbrev": "NE",
-      "window_start_utc": "2026-02-18 13:53:50",
-      "window_end_utc": "2026-03-20 13:53:50"
+      "window_start_utc": "2026-02-18 21:41:18",
+      "window_end_utc": "2026-03-20 21:41:18"
     },
     {
       "device_id": "247429",
       "individual_id": "6993999501",
-      "timestamp": "2026-03-20 00:07:16",
-      "lon": -96.5789,
-      "lat": 42.3697,
+      "timestamp": "2026-03-20 18:07:12",
+      "lon": -96.5785,
+      "lat": 42.3689,
       "state_province": "Nebraska",
       "state_abbrev": "NE",
-      "window_start_utc": "2026-02-18 13:53:50",
-      "window_end_utc": "2026-03-20 13:53:50"
+      "window_start_utc": "2026-02-18 21:41:18",
+      "window_end_utc": "2026-03-20 21:41:18"
     },
     {
       "device_id": "377513",
@@ -517,8 +517,8 @@
       "lat": 42.2656,
       "state_province": "Nebraska",
       "state_abbrev": "NE",
-      "window_start_utc": "2026-02-18 13:53:50",
-      "window_end_utc": "2026-03-20 13:53:50"
+      "window_start_utc": "2026-02-18 21:41:18",
+      "window_end_utc": "2026-03-20 21:41:18"
     },
     {
       "device_id": "377517",
@@ -528,8 +528,8 @@
       "lat": 42.1359,
       "state_province": "Nebraska",
       "state_abbrev": "NE",
-      "window_start_utc": "2026-02-18 13:53:50",
-      "window_end_utc": "2026-03-20 13:53:50"
+      "window_start_utc": "2026-02-18 21:41:18",
+      "window_end_utc": "2026-03-20 21:41:18"
     },
     {
       "device_id": "377518",
@@ -539,8 +539,8 @@
       "lat": 41.0468,
       "state_province": "Nebraska",
       "state_abbrev": "NE",
-      "window_start_utc": "2026-02-18 13:53:50",
-      "window_end_utc": "2026-03-20 13:53:50"
+      "window_start_utc": "2026-02-18 21:41:18",
+      "window_end_utc": "2026-03-20 21:41:18"
     },
     {
       "device_id": "377528",
@@ -550,8 +550,8 @@
       "lat": 42.723,
       "state_province": "Nebraska",
       "state_abbrev": "NE",
-      "window_start_utc": "2026-02-18 13:53:50",
-      "window_end_utc": "2026-03-20 13:53:50"
+      "window_start_utc": "2026-02-18 21:41:18",
+      "window_end_utc": "2026-03-20 21:41:18"
     },
     {
       "device_id": "377540",
@@ -561,30 +561,30 @@
       "lat": 41.9085,
       "state_province": "Nebraska",
       "state_abbrev": "NE",
-      "window_start_utc": "2026-02-18 13:53:50",
-      "window_end_utc": "2026-03-20 13:53:50"
+      "window_start_utc": "2026-02-18 21:41:18",
+      "window_end_utc": "2026-03-20 21:41:18"
     },
     {
       "device_id": "247430",
       "individual_id": "6993999500",
-      "timestamp": "2026-03-20 00:45:23",
-      "lon": -95.9872,
-      "lat": 36.3208,
+      "timestamp": "2026-03-20 18:45:14",
+      "lon": -95.9528,
+      "lat": 36.3223,
       "state_province": "Oklahoma",
       "state_abbrev": "OK",
-      "window_start_utc": "2026-02-18 13:53:50",
-      "window_end_utc": "2026-03-20 13:53:50"
+      "window_start_utc": "2026-02-18 21:41:18",
+      "window_end_utc": "2026-03-20 21:41:18"
     },
     {
       "device_id": "247417",
       "individual_id": "6993999484",
-      "timestamp": "2026-03-20 00:43:35",
-      "lon": -89.3389,
-      "lat": 42.9425,
+      "timestamp": "2026-03-20 18:43:00",
+      "lon": -89.3538,
+      "lat": 42.9234,
       "state_province": "Wisconsin",
       "state_abbrev": "WI",
-      "window_start_utc": "2026-02-18 13:53:50",
-      "window_end_utc": "2026-03-20 13:53:50"
+      "window_start_utc": "2026-02-18 21:41:18",
+      "window_end_utc": "2026-03-20 21:41:18"
     },
     {
       "device_id": "377548",
@@ -594,8 +594,8 @@
       "lat": 43.374,
       "state_province": "Wisconsin",
       "state_abbrev": "WI",
-      "window_start_utc": "2026-02-18 13:53:50",
-      "window_end_utc": "2026-03-20 13:53:50"
+      "window_start_utc": "2026-02-18 21:41:18",
+      "window_end_utc": "2026-03-20 21:41:18"
     }
   ],
   "migration_status": [
@@ -618,57 +618,57 @@
   "leaders": [
     {
       "device_id": "377528",
-      "n_fixes": 704,
-      "start_time": "2026-02-18 14:41:05",
+      "n_fixes": 697,
+      "start_time": "2026-02-18 21:41:35",
       "end_time": "2026-03-20 01:46:11",
-      "start_lon": -91.5225,
-      "start_lat": 34.1859,
+      "start_lon": -91.5192,
+      "start_lat": 34.1998,
       "end_lon": -96.857,
       "end_lat": 42.723,
-      "net_km": 1056.2603,
-      "lat_change": 8.5371,
+      "net_km": 1054.9808,
+      "lat_change": 8.5232,
       "max_lat": 42.7462,
       "min_lat": 34.1846,
       "top_state": "Arkansas",
-      "top_state_prop": 0.4616,
+      "top_state_prop": 0.4562,
       "current_state": "Nebraska",
       "current_state_abbrev": "NE",
       "migration_status": "Migrating"
     },
     {
       "device_id": "247429",
-      "n_fixes": 707,
-      "start_time": "2026-02-18 14:07:44",
-      "end_time": "2026-03-20 00:07:16",
-      "start_lon": -91.3825,
-      "start_lat": 34.315,
-      "end_lon": -96.5789,
-      "end_lat": 42.3697,
-      "net_km": 1003.263,
-      "lat_change": 8.0547,
+      "n_fixes": 717,
+      "start_time": "2026-02-18 22:07:28",
+      "end_time": "2026-03-20 18:07:12",
+      "start_lon": -91.3829,
+      "start_lat": 34.3143,
+      "end_lon": -96.5785,
+      "end_lat": 42.3689,
+      "net_km": 1003.2195,
+      "lat_change": 8.0546,
       "max_lat": 42.8599,
       "min_lat": 34.3096,
       "top_state": "Missouri",
-      "top_state_prop": 0.505,
+      "top_state_prop": 0.4979,
       "current_state": "Nebraska",
       "current_state_abbrev": "NE",
       "migration_status": "Migrating"
     },
     {
       "device_id": "247414",
-      "n_fixes": 711,
-      "start_time": "2026-02-18 14:23:35",
+      "n_fixes": 703,
+      "start_time": "2026-02-18 22:23:49",
       "end_time": "2026-03-20 04:22:58",
-      "start_lon": -91.6137,
-      "start_lat": 34.1069,
+      "start_lon": -91.6133,
+      "start_lat": 34.1061,
       "end_lon": -97.084,
       "end_lat": 41.9947,
-      "net_km": 998.8022,
-      "lat_change": 7.8877,
+      "net_km": 998.8995,
+      "lat_change": 7.8885,
       "max_lat": 43.8775,
       "min_lat": 34.0835,
       "top_state": "Arkansas",
-      "top_state_prop": 0.301,
+      "top_state_prop": 0.293,
       "current_state": "Nebraska",
       "current_state_abbrev": "NE",
       "migration_status": "Migrating"

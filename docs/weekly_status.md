@@ -1,7 +1,7 @@
 # Weekly Mallard Migration Status
 
 **Window:** 2026-02-18 to 2026-03-20 (UTC)
-**Transmitters reporting:** 48  |  **GPS fixes:** 30,774
+**Transmitters reporting:** 48  |  **GPS fixes:** 30,725
 
 ## Current state/province distribution (latest fix per transmitter)
 
@@ -24,7 +24,7 @@ State/province percentages reflect the **current location of each transmitter** 
 
 ## Leading movement this week (net displacement)
 
-- 377528: **1,056 km** net, lat change **8.54°**, current admin area **Nebraska**
+- 377528: **1,055 km** net, lat change **8.52°**, current admin area **Nebraska**
 - 247429: **1,003 km** net, lat change **8.05°**, current admin area **Nebraska**
 - 247414: **  999 km** net, lat change **7.89°**, current admin area **Nebraska**
 
