@@ -35,39 +35,35 @@ jobs:
       - name: Set up R
         uses: r-lib/actions/setup-r@v2
         with:
-          r-version: release
+          r-version: "4.5.2"
           use-public-rspm: true
 
-      - name: Set up system dependencies
+      - name: Set up Pandoc
+        uses: r-lib/actions/setup-pandoc@v2
+
+      - name: Install system dependencies
         run: |
           sudo apt-get update
           sudo apt-get install -y \
             libgdal-dev \
             libgeos-dev \
             libproj-dev \
-            libudunits2-dev
+            libudunits2-dev \
+            libcurl4-openssl-dev \
+            libssl-dev \
+            libxml2-dev \
+            make \
+            g++
 
-      - name: Set up R dependencies
-        uses: r-lib/actions/setup-r-dependencies@v2
+      - name: Restore renv library
+        uses: r-lib/actions/setup-renv@v2
         with:
           cache: true
-          cache-version: 2
-          pak-version: repo
-          packages: |
-            any::sessioninfo
-          extra-packages: |
-            any::move
-            any::dplyr
-            any::lubridate
-            any::sf
-            any::rnaturalearth
-            any::readr
-            any::tibble
-            any::ggplot2
-            any::plotly  # installs htmlwidgets as a dependency
 
       - name: Show session info
-        run: Rscript -e 'sessionInfo()'
+        run: |
+          Rscript -e 'sessionInfo()'
+          Rscript -e 'renv::status()'
 
       - name: Run weekly pipeline
         run: Rscript scripts/weekly_migration_pipeline.R
@@ -75,7 +71,7 @@ jobs:
       - name: Commit and push outputs
         run: |
           git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add docs/weekly_status.md docs/data
           git diff --cached --quiet || git commit -m "Weekly migration update"
           git push
