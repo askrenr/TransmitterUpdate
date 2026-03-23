@@ -6,7 +6,6 @@ suppressPackageStartupMessages({
   library(lubridate)
   library(sf)
   library(rnaturalearth)
-  library(rnaturalearthdata)
   library(ggplot2)
   library(jsonlite)
   library(readr)
