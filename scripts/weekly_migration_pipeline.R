@@ -6,6 +6,8 @@ suppressPackageStartupMessages({
   library(lubridate)
   library(sf)
   library(rnaturalearth)
+  library(rnaturalearthdata)
+  library(ggplot2)
   library(jsonlite)
   library(readr)
   library(stringr)
@@ -105,21 +107,33 @@ if (nrow(gps) == 0) {
 
 pts <- st_as_sf(gps, coords = c("lon", "lat"), crs = 4326, remove = FALSE)
 
-# Retrieve admin-1 (state/province) boundaries for US and Canada from rnaturalearth.
-admin1 <- rnaturalearth::ne_states(iso_a2 = c("US", "CA"), returnclass = "sf") %>%
-  transmute(
-    country       = iso_a2,      # two-letter country code (e.g., "US", "CA")
+# 3) Assign state/province using Natural Earth data (without rnaturalearthhires)
+
+# Download medium‑scale (1:50) admin‑level‑1 polygons from Natural Earth.
+# This layer is provided in rnaturalearthdata and does not need rnaturalearthhires.
+admin1_all <- rnaturalearth::ne_download(
+  scale       = 50,               # 1:50‑million scale avoids the hires package
+  type        = "states",         # admin‑level‑1 states/provinces
+  category    = "cultural",
+  returnclass = "sf"
+)
+
+# Filter to US and Canadian states/provinces and map the fields used later
+admin1 <- admin1_all %>%
+  dplyr::filter(iso_a2 %in% c("US", "CA")) %>%
+  dplyr::transmute(
+    country        = iso_a2,      # two‑letter country code
     state_province = name,        # state/province name
-    state_abbrev   = postal       # postal/abbreviation (may be NA for some regions)
+    state_abbrev   = postal       # postal abbreviation (may be NA)
   )
 
-admin1 <- st_make_valid(admin1)
-pts    <- st_make_valid(pts)
+admin1 <- sf::st_make_valid(admin1)
 
-admin1 <- st_transform(admin1, 4326)
-pts    <- st_transform(pts, 4326)
-
-pts_admin <- st_join(pts, admin1, left = TRUE, largest = TRUE)
+pts    <- sf::st_as_sf(gps, coords = c("lon", "lat"), crs = 4326, remove = FALSE)
+pts    <- sf::st_make_valid(pts)
+pts_admin <- sf::st_join(sf::st_transform(pts, 4326),
+                         sf::st_transform(admin1, 4326),
+                         left = TRUE, largest = TRUE)
 
 gps_admin <- pts_admin %>%
   st_drop_geometry() %>%
@@ -209,6 +223,43 @@ dev_metrics <- gps_admin %>%
     )
   ) %>%
   arrange(desc(net_km))
+
+# ----------------------------
+# 5b) State-to-state movement summary
+# ----------------------------
+device_moves <- gps_admin %>%
+  group_by(device_id) %>%
+  summarise(
+    first_state = first(state_province),
+    last_state  = last(state_province),
+    .groups = "drop"
+  ) %>%
+  filter(!is.na(first_state), !is.na(last_state))
+
+move_counts <- device_moves %>%
+  filter(first_state != last_state) %>%
+  count(first_state, last_state, name = "n_devices") %>%
+  arrange(desc(n_devices)) %>%
+  mutate(transition = paste(first_state, "→", last_state))
+
+# Generate bar plot of state-to-state movements and save as PNG
+fig_path <- NULL
+fig_rel <- NULL
+if (nrow(move_counts) > 0) {
+  move_plot <- ggplot(move_counts, aes(x = reorder(transition, -n_devices), y = n_devices)) +
+    geom_col(fill = "steelblue") +
+    labs(
+      title = "Transmitter movements between states (last 7 days)",
+      x = "State transition",
+      y = "Number of transmitters"
+    ) +
+    theme_minimal() +
+    theme(axis.text.x = element_text(angle = 45, hjust = 1))
+  fig_path <- file.path(out_dir_data, "state_transitions.png")
+  ggsave(fig_path, move_plot, width = 8, height = 4, dpi = 150)
+  # Compute relative path from markdown file to the image for linking
+  fig_rel <- file.path(basename(out_dir_data), basename(fig_path))
+}
 
 # ----------------------------
 # 6) Narrative generator
@@ -303,6 +354,17 @@ md <- c(
   leaders_section,
   ""
 )
+
+# Append a section with the state-to-state transitions figure, if available
+if (!is.null(fig_rel)) {
+  md <- c(
+    md,
+    "## State-to-state movements (last 7 days)",
+    "",
+    paste0("![](", fig_rel, ")"),
+    ""
+  )
+}
 
 # ----------------------------
 # 7) Write outputs
