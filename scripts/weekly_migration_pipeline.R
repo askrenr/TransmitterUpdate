@@ -7,6 +7,8 @@ suppressPackageStartupMessages({
   library(sf)
   library(rnaturalearth)
   library(ggplot2)
+  library(plotly)
+  library(htmlwidgets)
   library(jsonlite)
   library(readr)
   library(stringr)
@@ -20,7 +22,7 @@ study_id <- as.numeric(Sys.getenv("MOVEBANK_STUDY_ID", unset = "2665435998"))
 
 # time window: last 7 days ending now (UTC)
 now_utc   <- with_tz(Sys.time(), "UTC")
-start_utc <- now_utc - days(7)
+start_utc <- now_utc - days(30)
 
 out_dir_data <- Sys.getenv("OUT_DIR_DATA", unset = "docs/data")
 out_md       <- Sys.getenv("OUT_MD", unset = "docs/weekly_status.md")
@@ -140,7 +142,6 @@ gps_admin <- pts_admin %>%
     state_province = if_else(!is.na(state_province), state_province, "Unknown"),
     state_abbrev   = if_else(!is.na(state_abbrev), state_abbrev, NA_character_)
   )
-
 # ----------------------------
 # 4) Current location by device (latest fix only)
 # ----------------------------
@@ -261,6 +262,83 @@ if (nrow(move_counts) > 0) {
 }
 
 # ----------------------------
+# 5c) Current state distribution and monthly time-slider
+# ----------------------------
+#
+# Produce a bar chart of current transmitter locations by state/province (latest fix)
+# and an interactive time-slider showing daily counts by state for the last 30 days.
+
+current_fig_rel <- NULL
+slider_rel      <- NULL
+
+try({
+  # Bar chart of current state distribution
+  if (nrow(overall_props) > 0) {
+    current_plot <- ggplot(overall_props, aes(x = reorder(state_province, -n_devices), y = n_devices)) +
+      geom_col(fill = "steelblue") +
+      labs(
+        title = "Current transmitter locations by state/province (latest fix)",
+        x = "State/Province",
+        y = "Number of transmitters"
+      ) +
+      theme_minimal() +
+      theme(axis.text.x = element_text(angle = 45, hjust = 1))
+    current_fig_path <- file.path(out_dir_data, "current_state_distribution.png")
+    ggsave(current_fig_path, current_plot, width = 8, height = 4, dpi = 150)
+    current_fig_rel  <- file.path(basename(out_dir_data), basename(current_fig_path))
+  }
+
+  # Compute state counts per day for last 30 days (including today)
+  start_month_utc <- now_utc - lubridate::days(30)
+  gps_month <- gps_admin %>%
+    filter(timestamp >= start_month_utc) %>%
+    mutate(date = as.Date(timestamp, tz = "UTC")) %>%
+    group_by(device_id, date) %>%
+    slice_max(order_by = timestamp, n = 1, with_ties = FALSE) %>%
+    ungroup()
+
+  state_counts_month <- gps_month %>%
+    count(date, state_province, name = "n_devices")
+
+  if (nrow(state_counts_month) > 0) {
+    # Order states by total count to ensure consistent x-axis ordering
+    state_order <- state_counts_month %>%
+      group_by(state_province) %>%
+      summarise(total = sum(n_devices, na.rm = TRUE)) %>%
+      arrange(desc(total)) %>%
+      pull(state_province)
+    state_counts_month <- state_counts_month %>%
+      mutate(
+        state_province = factor(state_province, levels = state_order),
+        date = as.Date(date)
+      )
+
+    # Build interactive slider plot using plotly
+    plot_slider <- state_counts_month %>%
+      plot_ly(
+        x = ~state_province,
+        y = ~n_devices,
+        color = ~state_province,
+        type = "bar",
+        frame = ~date,
+        hovertemplate = "State: %{x}<br>Devices: %{y}<extra></extra>"
+      ) %>%
+      layout(
+        title = "Transmitter locations by state/province over the last 30 days",
+        xaxis = list(title = "State/Province"),
+        yaxis = list(title = "Number of transmitters"),
+        showlegend = FALSE
+      ) %>%
+      animation_opts(frame = 1000, transition = 500, easing = "linear", redraw = FALSE) %>%
+      animation_slider(currentvalue = list(prefix = "Date: "))
+
+    slider_path <- file.path(out_dir_data, "state_counts_slider.html")
+    htmlwidgets::saveWidget(plot_slider, file = slider_path, selfcontained = TRUE)
+    slider_rel  <- file.path(basename(out_dir_data), basename(slider_path))
+  }
+}, silent = TRUE)
+
+# ----------------------------
 # 6) Narrative generator
 # ----------------------------
 fmt_pct <- function(x) paste0(round(100 * x, 1), "%")
@@ -361,6 +439,28 @@ if (!is.null(fig_rel)) {
     "## State-to-state movements (last 7 days)",
     "",
     paste0("![](", fig_rel, ")"),
+    ""
+  )
+}
+
+# Append a section with the current state distribution bar chart, if available
+if (!is.null(current_fig_rel)) {
+  md <- c(
+    md,
+    "## Current transmitter location distribution",
+    "",
+    paste0("![](", current_fig_rel, ")"),
+    ""
+  )
+}
+
+# Append a section with the 30-day time-slider for state distribution, if available
+if (!is.null(slider_rel)) {
+  md <- c(
+    md,
+    "## Transmitter location distribution over time (last 30 days)",
+    "",
+    paste0("[Interactive bar chart](", slider_rel, ")"),
     ""
   )
 }
