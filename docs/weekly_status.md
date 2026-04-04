@@ -1,7 +1,7 @@
 # Weekly Mallard Migration Status
 
-**Window:** 2026-03-04 to 2026-04-03 (UTC)
-**Transmitters reporting:** 48  |  **GPS fixes:** 31,366
+**Window:** 2026-03-05 to 2026-04-04 (UTC)
+**Transmitters reporting:** 48  |  **GPS fixes:** 31,393
 
 ## Current state/province distribution (latest fix per transmitter)
 
@@ -26,7 +26,7 @@ State/province percentages reflect the **current location of each transmitter** 
 
 - 230381: **1,565 km** net, lat change **13.66°**, current admin area **North Dakota**
 - 236662: **1,300 km** net, lat change **10.39°**, current admin area **South Dakota**
-- 377540: **1,254 km** net, lat change **10.11°**, current admin area **South Dakota**
+- 377540: **1,243 km** net, lat change **10.03°**, current admin area **South Dakota**
 
 ## State-to-state movements (last 7 days)
 
