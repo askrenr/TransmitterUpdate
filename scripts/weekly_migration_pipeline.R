@@ -493,3 +493,4 @@ message("✅ Weekly migration pipeline complete.")
 message(" - ", out_md)
 message(" - ", file.path(out_dir_data, "state_province_proportions.csv"))
 message(" - ", file.path(out_dir_data, "weekly_summary.json"))
+
