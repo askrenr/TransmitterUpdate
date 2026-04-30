@@ -30,13 +30,13 @@ State/province percentages reflect the **current location of each transmitter** 
 
 ## State-to-state movements (last 7 days)
 
-![](docs/state_transitions.png)
+![](data/state_transitions.png)
 
 ## Current transmitter location distribution
 
-![](docs/current_state_distribution.png)
+![](data/current_state_distribution.png)
 
 ## Transmitter location distribution over time (last 30 days)
 
-[Interactive bar chart](docs/state_counts_slider.html)
+[Interactive bar chart](data/state_counts_slider.html)
 
