@@ -1,7 +1,7 @@
 # Weekly Mallard Migration Status
 
 **Window:** 2026-03-31 to 2026-04-30 (UTC)
-**Transmitters reporting:** 46  |  **GPS fixes:** 30,079
+**Transmitters reporting:** 46  |  **GPS fixes:** 30,051
 
 ## Current state/province distribution (latest fix per transmitter)
 
