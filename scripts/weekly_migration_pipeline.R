@@ -24,7 +24,7 @@ study_id <- as.numeric(Sys.getenv("MOVEBANK_STUDY_ID", unset = "2665435998"))
 now_utc   <- with_tz(Sys.time(), "UTC")
 start_utc <- now_utc - days(30)
 
-out_dir_data <- Sys.getenv("OUT_DIR_DATA", unset = "docs")
+out_dir_data <- Sys.getenv("OUT_DIR_DATA", unset = "docs/data")
 out_md       <- Sys.getenv("OUT_MD", unset = "docs/weekly_status.md")
 
 dir.create(out_dir_data, recursive = TRUE, showWarnings = FALSE)
