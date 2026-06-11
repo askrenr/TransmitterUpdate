@@ -1,22 +1,22 @@
 # Weekly Mallard Migration Status
 
 **Window:** 2026-05-12 to 2026-06-11 (UTC)
-**Transmitters reporting:** 40  |  **GPS fixes:** 24,271
+**Transmitters reporting:** 39  |  **GPS fixes:** 24,198
 
 ## Current state/province distribution (latest fix per transmitter)
 
-- Saskatchewan: 40% (n=16)
-- North Dakota: 20% (n=8)
-- Manitoba: 12.5% (n=5)
-- Alberta: 7.5% (n=3)
-- Minnesota: 7.5% (n=3)
-- Iowa: 5% (n=2)
+- Saskatchewan: 41% (n=16)
+- North Dakota: 17.9% (n=7)
+- Manitoba: 12.8% (n=5)
+- Alberta: 7.7% (n=3)
+- Minnesota: 7.7% (n=3)
+- Iowa: 5.1% (n=2)
 
 ## Migration status (by transmitter)
 
-- Local: 27 (67.5%)
-- Transitional: 7 (17.5%)
-- Migrating: 6 (15%)
+- Local: 28 (71.8%)
+- Transitional: 5 (12.8%)
+- Migrating: 6 (15.4%)
 
 ## Notes
 
