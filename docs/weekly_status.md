@@ -25,8 +25,8 @@ State/province percentages reflect the **current location of each transmitter** 
 ## Leading movement this week (net displacement)
 
 - 377521: **1,152 km** net, lat change **7.63°**, current admin area **Saskatchewan**
-- 236645: **  685 km** net, lat change **5.95°**, current admin area **Manitoba**
-- 377518: **  648 km** net, lat change **-4.47°**, current admin area **North Dakota**
+- 236645: **  686 km** net, lat change **5.95°**, current admin area **Manitoba**
+- 377518: **  649 km** net, lat change **-4.49°**, current admin area **North Dakota**
 
 ## State-to-state movements (last 7 days)
 
