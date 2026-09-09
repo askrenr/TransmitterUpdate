@@ -1,7 +1,7 @@
 # Weekly Mallard Migration Status
 
-**Window:** 2026-08-09 to 2026-09-08 (UTC)
-**Transmitters reporting:** 29  |  **GPS fixes:** 18,385
+**Window:** 2026-08-10 to 2026-09-09 (UTC)
+**Transmitters reporting:** 29  |  **GPS fixes:** 18,467
 
 ## Current state/province distribution (latest fix per transmitter)
 
@@ -23,7 +23,7 @@ State/province percentages reflect the **current location of each transmitter** 
 
 ## Leading movement this week (net displacement)
 
-- 377527: **381 km** net, lat change **-3.39°**, current admin area **Alberta**
+- 377527: **380 km** net, lat change **-3.42°**, current admin area **Alberta**
 - 377514: **292 km** net, lat change **1.71°**, current admin area **South Dakota**
 - 377545: **111 km** net, lat change **-0.99°**, current admin area **Manitoba**
 
