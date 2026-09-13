@@ -1,67 +1,67 @@
 {
-  "window_start_utc": "2026-08-13 18:24:59 UTC",
-  "window_end_utc": "2026-09-12 18:24:59 UTC",
+  "window_start_utc": "2026-08-14 12:30:59 UTC",
+  "window_end_utc": "2026-09-13 12:30:59 UTC",
   "n_devices": 29,
-  "n_fixes": 18997,
+  "n_fixes": 18925,
   "overall_state_province": [
     {
       "state_province": "Saskatchewan",
       "n_devices": 16,
       "prop": 0.5517,
-      "window_start_utc": "2026-08-13 18:24:59",
-      "window_end_utc": "2026-09-12 18:24:59"
+      "window_start_utc": "2026-08-14 12:30:59",
+      "window_end_utc": "2026-09-13 12:30:59"
     },
     {
       "state_province": "North Dakota",
       "n_devices": 5,
       "prop": 0.1724,
-      "window_start_utc": "2026-08-13 18:24:59",
-      "window_end_utc": "2026-09-12 18:24:59"
+      "window_start_utc": "2026-08-14 12:30:59",
+      "window_end_utc": "2026-09-13 12:30:59"
     },
     {
       "state_province": "Manitoba",
       "n_devices": 4,
       "prop": 0.1379,
-      "window_start_utc": "2026-08-13 18:24:59",
-      "window_end_utc": "2026-09-12 18:24:59"
+      "window_start_utc": "2026-08-14 12:30:59",
+      "window_end_utc": "2026-09-13 12:30:59"
     },
     {
       "state_province": "Alberta",
       "n_devices": 2,
       "prop": 0.069,
-      "window_start_utc": "2026-08-13 18:24:59",
-      "window_end_utc": "2026-09-12 18:24:59"
+      "window_start_utc": "2026-08-14 12:30:59",
+      "window_end_utc": "2026-09-13 12:30:59"
     },
     {
       "state_province": "South Dakota",
       "n_devices": 2,
       "prop": 0.069,
-      "window_start_utc": "2026-08-13 18:24:59",
-      "window_end_utc": "2026-09-12 18:24:59"
+      "window_start_utc": "2026-08-14 12:30:59",
+      "window_end_utc": "2026-09-13 12:30:59"
     }
   ],
   "current_device_locations": [
     {
       "device_id": "377521",
       "individual_id": "8303760222",
-      "timestamp": "2026-09-12 13:34:30",
+      "timestamp": "2026-09-13 07:34:49",
       "lon": -111.174,
       "lat": 53.1885,
       "state_province": "Alberta",
       "state_abbrev": "AB",
-      "window_start_utc": "2026-08-13 18:24:59",
-      "window_end_utc": "2026-09-12 18:24:59"
+      "window_start_utc": "2026-08-14 12:30:59",
+      "window_end_utc": "2026-09-13 12:30:59"
     },
     {
       "device_id": "377527",
       "individual_id": "8163509452",
-      "timestamp": "2026-09-12 02:48:52",
-      "lon": -111.9069,
-      "lat": 54.7162,
+      "timestamp": "2026-09-13 02:48:52",
+      "lon": -111.9075,
+      "lat": 54.7167,
       "state_province": "Alberta",
       "state_abbrev": "AB",
-      "window_start_utc": "2026-08-13 18:24:59",
-      "window_end_utc": "2026-09-12 18:24:59"
+      "window_start_utc": "2026-08-14 12:30:59",
+      "window_end_utc": "2026-09-13 12:30:59"
     },
     {
       "device_id": "227229",
@@ -71,8 +71,8 @@
       "lat": 50.3527,
       "state_province": "Manitoba",
       "state_abbrev": "MB",
-      "window_start_utc": "2026-08-13 18:24:59",
-      "window_end_utc": "2026-09-12 18:24:59"
+      "window_start_utc": "2026-08-14 12:30:59",
+      "window_end_utc": "2026-09-13 12:30:59"
     },
     {
       "device_id": "236645",
@@ -82,30 +82,30 @@
       "lat": 53.9175,
       "state_province": "Manitoba",
       "state_abbrev": "MB",
-      "window_start_utc": "2026-08-13 18:24:59",
-      "window_end_utc": "2026-09-12 18:24:59"
+      "window_start_utc": "2026-08-14 12:30:59",
+      "window_end_utc": "2026-09-13 12:30:59"
     },
     {
       "device_id": "377524",
       "individual_id": "8265478842",
-      "timestamp": "2026-09-12 04:12:22",
-      "lon": -100.808,
-      "lat": 50.6871,
+      "timestamp": "2026-09-12 22:12:49",
+      "lon": -100.8203,
+      "lat": 50.7196,
       "state_province": "Manitoba",
       "state_abbrev": "MB",
-      "window_start_utc": "2026-08-13 18:24:59",
-      "window_end_utc": "2026-09-12 18:24:59"
+      "window_start_utc": "2026-08-14 12:30:59",
+      "window_end_utc": "2026-09-13 12:30:59"
     },
     {
       "device_id": "377545",
       "individual_id": "8265478837",
-      "timestamp": "2026-09-12 00:24:35",
-      "lon": -98.4071,
-      "lat": 50.1327,
+      "timestamp": "2026-09-12 18:25:23",
+      "lon": -98.4067,
+      "lat": 50.1329,
       "state_province": "Manitoba",
       "state_abbrev": "MB",
-      "window_start_utc": "2026-08-13 18:24:59",
-      "window_end_utc": "2026-09-12 18:24:59"
+      "window_start_utc": "2026-08-14 12:30:59",
+      "window_end_utc": "2026-09-13 12:30:59"
     },
     {
       "device_id": "236638",
@@ -115,74 +115,74 @@
       "lat": 47.5617,
       "state_province": "North Dakota",
       "state_abbrev": "ND",
-      "window_start_utc": "2026-08-13 18:24:59",
-      "window_end_utc": "2026-09-12 18:24:59"
+      "window_start_utc": "2026-08-14 12:30:59",
+      "window_end_utc": "2026-09-13 12:30:59"
     },
     {
       "device_id": "247417",
       "individual_id": "6993999484",
-      "timestamp": "2026-09-11 12:41:52",
-      "lon": -99.096,
-      "lat": 48.1303,
+      "timestamp": "2026-09-13 00:42:14",
+      "lon": -99.0871,
+      "lat": 48.1304,
       "state_province": "North Dakota",
       "state_abbrev": "ND",
-      "window_start_utc": "2026-08-13 18:24:59",
-      "window_end_utc": "2026-09-12 18:24:59"
+      "window_start_utc": "2026-08-14 12:30:59",
+      "window_end_utc": "2026-09-13 12:30:59"
     },
     {
       "device_id": "377518",
       "individual_id": "8163509443",
-      "timestamp": "2026-09-12 13:17:57",
-      "lon": -100.1765,
-      "lat": 47.8058,
+      "timestamp": "2026-09-13 07:17:44",
+      "lon": -100.1764,
+      "lat": 47.8061,
       "state_province": "North Dakota",
       "state_abbrev": "ND",
-      "window_start_utc": "2026-08-13 18:24:59",
-      "window_end_utc": "2026-09-12 18:24:59"
+      "window_start_utc": "2026-08-14 12:30:59",
+      "window_end_utc": "2026-09-13 12:30:59"
     },
     {
       "device_id": "377526",
       "individual_id": "8163509449",
-      "timestamp": "2026-09-12 02:12:19",
-      "lon": -100.5486,
-      "lat": 48.8653,
+      "timestamp": "2026-09-12 20:12:19",
+      "lon": -100.5513,
+      "lat": 48.8482,
       "state_province": "North Dakota",
       "state_abbrev": "ND",
-      "window_start_utc": "2026-08-13 18:24:59",
-      "window_end_utc": "2026-09-12 18:24:59"
+      "window_start_utc": "2026-08-14 12:30:59",
+      "window_end_utc": "2026-09-13 12:30:59"
     },
     {
       "device_id": "377546",
       "individual_id": "8163509436",
-      "timestamp": "2026-09-12 06:48:05",
+      "timestamp": "2026-09-13 06:47:27",
       "lon": -99.187,
       "lat": 48.8469,
       "state_province": "North Dakota",
       "state_abbrev": "ND",
-      "window_start_utc": "2026-08-13 18:24:59",
-      "window_end_utc": "2026-09-12 18:24:59"
+      "window_start_utc": "2026-08-14 12:30:59",
+      "window_end_utc": "2026-09-13 12:30:59"
     },
     {
       "device_id": "247412",
       "individual_id": "6993999480",
-      "timestamp": "2026-09-12 03:55:54",
-      "lon": -104.6318,
-      "lat": 51.9168,
+      "timestamp": "2026-09-12 21:55:45",
+      "lon": -104.6295,
+      "lat": 51.9169,
       "state_province": "Saskatchewan",
       "state_abbrev": "SK",
-      "window_start_utc": "2026-08-13 18:24:59",
-      "window_end_utc": "2026-09-12 18:24:59"
+      "window_start_utc": "2026-08-14 12:30:59",
+      "window_end_utc": "2026-09-13 12:30:59"
     },
     {
       "device_id": "247414",
       "individual_id": "6993999488",
-      "timestamp": "2026-09-10 04:19:11",
-      "lon": -105.8178,
-      "lat": 51.5893,
+      "timestamp": "2026-09-13 04:19:11",
+      "lon": -105.8174,
+      "lat": 51.5892,
       "state_province": "Saskatchewan",
       "state_abbrev": "SK",
-      "window_start_utc": "2026-08-13 18:24:59",
-      "window_end_utc": "2026-09-12 18:24:59"
+      "window_start_utc": "2026-08-14 12:30:59",
+      "window_end_utc": "2026-09-13 12:30:59"
     },
     {
       "device_id": "247429",
@@ -192,30 +192,30 @@
       "lat": 53.0108,
       "state_province": "Saskatchewan",
       "state_abbrev": "SK",
-      "window_start_utc": "2026-08-13 18:24:59",
-      "window_end_utc": "2026-09-12 18:24:59"
+      "window_start_utc": "2026-08-14 12:30:59",
+      "window_end_utc": "2026-09-13 12:30:59"
     },
     {
       "device_id": "247435",
       "individual_id": "6993999506",
-      "timestamp": "2026-09-06 18:09:53",
-      "lon": -104.7694,
-      "lat": 51.1058,
+      "timestamp": "2026-09-08 20:10:05",
+      "lon": -104.7669,
+      "lat": 51.1096,
       "state_province": "Saskatchewan",
       "state_abbrev": "SK",
-      "window_start_utc": "2026-08-13 18:24:59",
-      "window_end_utc": "2026-09-12 18:24:59"
+      "window_start_utc": "2026-08-14 12:30:59",
+      "window_end_utc": "2026-09-13 12:30:59"
     },
     {
       "device_id": "247445",
       "individual_id": "8265478833",
-      "timestamp": "2026-09-09 01:43:36",
-      "lon": -106.7738,
+      "timestamp": "2026-09-13 01:57:24",
+      "lon": -106.7737,
       "lat": 52.8501,
       "state_province": "Saskatchewan",
       "state_abbrev": "SK",
-      "window_start_utc": "2026-08-13 18:24:59",
-      "window_end_utc": "2026-09-12 18:24:59"
+      "window_start_utc": "2026-08-14 12:30:59",
+      "window_end_utc": "2026-09-13 12:30:59"
     },
     {
       "device_id": "247446",
@@ -225,19 +225,19 @@
       "lat": 50.3327,
       "state_province": "Saskatchewan",
       "state_abbrev": "SK",
-      "window_start_utc": "2026-08-13 18:24:59",
-      "window_end_utc": "2026-09-12 18:24:59"
+      "window_start_utc": "2026-08-14 12:30:59",
+      "window_end_utc": "2026-09-13 12:30:59"
     },
     {
       "device_id": "370818",
       "individual_id": "8265478843",
-      "timestamp": "2026-09-12 12:45:36",
-      "lon": -102.2953,
-      "lat": 49.7048,
+      "timestamp": "2026-09-13 06:45:43",
+      "lon": -102.313,
+      "lat": 49.7131,
       "state_province": "Saskatchewan",
       "state_abbrev": "SK",
-      "window_start_utc": "2026-08-13 18:24:59",
-      "window_end_utc": "2026-09-12 18:24:59"
+      "window_start_utc": "2026-08-14 12:30:59",
+      "window_end_utc": "2026-09-13 12:30:59"
     },
     {
       "device_id": "377511",
@@ -247,41 +247,41 @@
       "lat": 52.9566,
       "state_province": "Saskatchewan",
       "state_abbrev": "SK",
-      "window_start_utc": "2026-08-13 18:24:59",
-      "window_end_utc": "2026-09-12 18:24:59"
+      "window_start_utc": "2026-08-14 12:30:59",
+      "window_end_utc": "2026-09-13 12:30:59"
     },
     {
       "device_id": "377513",
       "individual_id": "8163509466",
-      "timestamp": "2026-09-12 12:52:55",
-      "lon": -103.6392,
-      "lat": 52.1034,
+      "timestamp": "2026-09-13 06:52:52",
+      "lon": -103.645,
+      "lat": 52.1053,
       "state_province": "Saskatchewan",
       "state_abbrev": "SK",
-      "window_start_utc": "2026-08-13 18:24:59",
-      "window_end_utc": "2026-09-12 18:24:59"
+      "window_start_utc": "2026-08-14 12:30:59",
+      "window_end_utc": "2026-09-13 12:30:59"
     },
     {
       "device_id": "377515",
       "individual_id": "8265478838",
-      "timestamp": "2026-09-12 00:23:47",
-      "lon": -103.3725,
-      "lat": 51.6018,
+      "timestamp": "2026-09-12 18:23:35",
+      "lon": -103.3827,
+      "lat": 51.593,
       "state_province": "Saskatchewan",
       "state_abbrev": "SK",
-      "window_start_utc": "2026-08-13 18:24:59",
-      "window_end_utc": "2026-09-12 18:24:59"
+      "window_start_utc": "2026-08-14 12:30:59",
+      "window_end_utc": "2026-09-13 12:30:59"
     },
     {
       "device_id": "377528",
       "individual_id": "8265478831",
-      "timestamp": "2026-09-12 01:48:55",
-      "lon": -104.9107,
-      "lat": 51.5541,
+      "timestamp": "2026-09-13 01:47:40",
+      "lon": -104.9105,
+      "lat": 51.5538,
       "state_province": "Saskatchewan",
       "state_abbrev": "SK",
-      "window_start_utc": "2026-08-13 18:24:59",
-      "window_end_utc": "2026-09-12 18:24:59"
+      "window_start_utc": "2026-08-14 12:30:59",
+      "window_end_utc": "2026-09-13 12:30:59"
     },
     {
       "device_id": "377532",
@@ -291,30 +291,30 @@
       "lat": 53.0647,
       "state_province": "Saskatchewan",
       "state_abbrev": "SK",
-      "window_start_utc": "2026-08-13 18:24:59",
-      "window_end_utc": "2026-09-12 18:24:59"
+      "window_start_utc": "2026-08-14 12:30:59",
+      "window_end_utc": "2026-09-13 12:30:59"
     },
     {
       "device_id": "377535",
       "individual_id": "8163509426",
-      "timestamp": "2026-09-12 11:50:07",
-      "lon": -103.2394,
-      "lat": 51.5719,
+      "timestamp": "2026-09-13 05:50:04",
+      "lon": -103.2465,
+      "lat": 51.5621,
       "state_province": "Saskatchewan",
       "state_abbrev": "SK",
-      "window_start_utc": "2026-08-13 18:24:59",
-      "window_end_utc": "2026-09-12 18:24:59"
+      "window_start_utc": "2026-08-14 12:30:59",
+      "window_end_utc": "2026-09-13 12:30:59"
     },
     {
       "device_id": "377538",
       "individual_id": "8163509428",
-      "timestamp": "2026-09-12 12:01:35",
-      "lon": -103.0965,
-      "lat": 53.3403,
+      "timestamp": "2026-09-13 06:01:34",
+      "lon": -103.1198,
+      "lat": 53.339,
       "state_province": "Saskatchewan",
       "state_abbrev": "SK",
-      "window_start_utc": "2026-08-13 18:24:59",
-      "window_end_utc": "2026-09-12 18:24:59"
+      "window_start_utc": "2026-08-14 12:30:59",
+      "window_end_utc": "2026-09-13 12:30:59"
     },
     {
       "device_id": "377540",
@@ -324,19 +324,19 @@
       "lat": 49.869,
       "state_province": "Saskatchewan",
       "state_abbrev": "SK",
-      "window_start_utc": "2026-08-13 18:24:59",
-      "window_end_utc": "2026-09-12 18:24:59"
+      "window_start_utc": "2026-08-14 12:30:59",
+      "window_end_utc": "2026-09-13 12:30:59"
     },
     {
       "device_id": "377548",
       "individual_id": "8163509439",
-      "timestamp": "2026-09-12 13:04:35",
-      "lon": -102.3867,
-      "lat": 51.4094,
+      "timestamp": "2026-09-13 07:04:35",
+      "lon": -102.4098,
+      "lat": 51.411,
       "state_province": "Saskatchewan",
       "state_abbrev": "SK",
-      "window_start_utc": "2026-08-13 18:24:59",
-      "window_end_utc": "2026-09-12 18:24:59"
+      "window_start_utc": "2026-08-14 12:30:59",
+      "window_end_utc": "2026-09-13 12:30:59"
     },
     {
       "device_id": "377514",
@@ -346,8 +346,8 @@
       "lat": 44.8312,
       "state_province": "South Dakota",
       "state_abbrev": "SD",
-      "window_start_utc": "2026-08-13 18:24:59",
-      "window_end_utc": "2026-09-12 18:24:59"
+      "window_start_utc": "2026-08-14 12:30:59",
+      "window_end_utc": "2026-09-13 12:30:59"
     },
     {
       "device_id": "377517",
@@ -357,39 +357,34 @@
       "lat": 45.3911,
       "state_province": "South Dakota",
       "state_abbrev": "SD",
-      "window_start_utc": "2026-08-13 18:24:59",
-      "window_end_utc": "2026-09-12 18:24:59"
+      "window_start_utc": "2026-08-14 12:30:59",
+      "window_end_utc": "2026-09-13 12:30:59"
     }
   ],
   "migration_status": [
     {
       "migration_status": "Local",
-      "n": 23,
-      "prop": 0.7931
+      "n": 24,
+      "prop": 0.8276
     },
     {
       "migration_status": "Transitional",
       "n": 5,
       "prop": 0.1724
-    },
-    {
-      "migration_status": "Migrating",
-      "n": 1,
-      "prop": 0.0345
     }
   ],
   "leaders": [
     {
       "device_id": "377527",
-      "n_fixes": 701,
-      "start_time": "2026-08-13 18:49:19",
-      "end_time": "2026-09-12 02:48:52",
-      "start_lon": -111.7615,
-      "start_lat": 58.1403,
-      "end_lon": -111.9069,
-      "end_lat": 54.7162,
-      "net_km": 380.8545,
-      "lat_change": -3.4242,
+      "n_fixes": 707,
+      "start_time": "2026-08-14 12:49:04",
+      "end_time": "2026-09-13 02:48:52",
+      "start_lon": -111.7641,
+      "start_lat": 58.1358,
+      "end_lon": -111.9075,
+      "end_lat": 54.7167,
+      "net_km": 380.2813,
+      "lat_change": -3.419,
       "max_lat": 58.1854,
       "min_lat": 54.5208,
       "top_state": "Alberta",
@@ -399,41 +394,41 @@
       "migration_status": "Transitional"
     },
     {
-      "device_id": "377514",
-      "n_fixes": 715,
-      "start_time": "2026-08-13 18:53:19",
-      "end_time": "2026-09-12 12:54:05",
-      "start_lon": -95.3052,
-      "start_lat": 43.411,
-      "end_lon": -97.7077,
-      "end_lat": 44.8312,
-      "net_km": 248.4055,
-      "lat_change": 1.4201,
-      "max_lat": 44.8592,
-      "min_lat": 43.411,
-      "top_state": "South Dakota",
-      "top_state_prop": 0.9874,
-      "current_state": "South Dakota",
-      "current_state_abbrev": "SD",
-      "migration_status": "Migrating"
-    },
-    {
       "device_id": "377545",
       "n_fixes": 697,
-      "start_time": "2026-08-13 19:24:30",
-      "end_time": "2026-09-12 00:24:35",
-      "start_lon": -98.649,
-      "start_lat": 51.1165,
-      "end_lon": -98.4071,
-      "end_lat": 50.1327,
-      "net_km": 110.7199,
-      "lat_change": -0.9838,
+      "start_time": "2026-08-14 13:24:49",
+      "end_time": "2026-09-12 18:25:23",
+      "start_lon": -98.6571,
+      "start_lat": 51.1199,
+      "end_lon": -98.4067,
+      "end_lat": 50.1329,
+      "net_km": 111.159,
+      "lat_change": -0.987,
       "max_lat": 51.126,
       "min_lat": 50.068,
       "top_state": "Manitoba",
       "top_state_prop": 1,
       "current_state": "Manitoba",
       "current_state_abbrev": "MB",
+      "migration_status": "Transitional"
+    },
+    {
+      "device_id": "377528",
+      "n_fixes": 699,
+      "start_time": "2026-08-14 12:48:46",
+      "end_time": "2026-09-13 01:47:40",
+      "start_lon": -103.7693,
+      "start_lat": 51.3414,
+      "end_lon": -104.9105,
+      "end_lat": 51.5538,
+      "net_km": 82.5332,
+      "lat_change": 0.2124,
+      "max_lat": 51.6007,
+      "min_lat": 51.3348,
+      "top_state": "Saskatchewan",
+      "top_state_prop": 1,
+      "current_state": "Saskatchewan",
+      "current_state_abbrev": "SK",
       "migration_status": "Transitional"
     }
   ]
