@@ -1,20 +1,20 @@
 # Weekly Mallard Migration Status
 
-**Window:** 2026-08-24 to 2026-09-23 (UTC)
-**Transmitters reporting:** 30  |  **GPS fixes:** 17,291
+**Window:** 2026-08-25 to 2026-09-24 (UTC)
+**Transmitters reporting:** 29  |  **GPS fixes:** 16,579
 
 ## Current state/province distribution (latest fix per transmitter)
 
-- Saskatchewan: 56.7% (n=17)
-- North Dakota: 20% (n=6)
-- Manitoba: 10% (n=3)
-- Alberta: 6.7% (n=2)
-- South Dakota: 6.7% (n=2)
+- Saskatchewan: 58.6% (n=17)
+- North Dakota: 20.7% (n=6)
+- Alberta: 6.9% (n=2)
+- Manitoba: 6.9% (n=2)
+- South Dakota: 6.9% (n=2)
 
 ## Migration status (by transmitter)
 
-- Local: 24 (80%)
-- Transitional: 6 (20%)
+- Local: 23 (79.3%)
+- Transitional: 6 (20.7%)
 
 ## Notes
 
@@ -24,7 +24,7 @@ State/province percentages reflect the **current location of each transmitter** 
 
 - 377523: **492 km** net, lat change **-4.19°**, current admin area **Saskatchewan**
 - 377545: **266 km** net, lat change **-2.39°**, current admin area **North Dakota**
-- 377527: **200 km** net, lat change **-1.79°**, current admin area **Alberta**
+- 377527: **119 km** net, lat change **-0.93°**, current admin area **Alberta**
 
 ## State-to-state movements (last 7 days)
 
