@@ -1,7 +1,7 @@
 # Weekly Mallard Migration Status
 
 **Window:** 2026-09-19 to 2026-10-19 (UTC)
-**Transmitters reporting:** 31  |  **GPS fixes:** 20,087
+**Transmitters reporting:** 31  |  **GPS fixes:** 19,964
 
 ## Current state/province distribution (latest fix per transmitter)
 
@@ -23,7 +23,7 @@ State/province percentages reflect the **current location of each transmitter** 
 
 ## Leading movement this week (net displacement)
 
-- 377547: **903 km** net, lat change **-7.96°**, current admin area **Saskatchewan**
+- 377547: **902 km** net, lat change **-7.94°**, current admin area **Saskatchewan**
 - 377538: **837 km** net, lat change **-6.63°**, current admin area **North Dakota**
 - 377545: **173 km** net, lat change **-1.54°**, current admin area **North Dakota**
 
