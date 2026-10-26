@@ -20,7 +20,7 @@ suppressPackageStartupMessages({
 # ----------------------------
 study_id <- as.numeric(Sys.getenv("MOVEBANK_STUDY_ID", unset = "2665435998"))
 
-# time window: last 7 days ending now (UTC)
+# time window: last 30 days ending now (UTC); the headline uses the last 7
 now_utc   <- with_tz(Sys.time(), "UTC")
 start_utc <- now_utc - days(30)
 
@@ -33,6 +33,23 @@ dir.create(dirname(out_md), recursive = TRUE, showWarnings = FALSE)
 THRESH_NET_KM_MIGRATING    <- as.numeric(Sys.getenv("THRESH_NET_KM_MIGRATING", unset = "150"))
 THRESH_LAT_CHANGE_DEG      <- as.numeric(Sys.getenv("THRESH_LAT_CHANGE_DEG", unset = "1.0"))
 THRESH_NET_KM_TRANSITIONAL <- as.numeric(Sys.getenv("THRESH_NET_KM_TRANSITIONAL", unset = "60"))
+
+# Published-coordinate precision, ported from MigrationDashboard. Positions in
+# the public CSV/JSON files are rounded to PUBLISH_COORD_DP (3 dp is ~110 m);
+# during hunting seasons (Oct 1 - Jan 31, Central time) they are first snapped
+# to a fixed PUBLISH_GRID_DEG grid. The grid is fixed, so repeated runs cannot
+# be averaged to recover a fix. PUBLISH_PRIVACY=on/off overrides the date.
+# net_km and lat_change are computed before this, at full precision.
+PUBLISH_COORD_DP <- as.integer(Sys.getenv("PUBLISH_COORD_DP", unset = "3"))
+PUBLISH_GRID_DEG <- as.numeric(Sys.getenv("PUBLISH_GRID_DEG", unset = "0.25"))
+snap_grid <- function(x) round(x / PUBLISH_GRID_DEG) * PUBLISH_GRID_DEG
+PUBLISH_PRIVACY_MONTHS <- c(10, 11, 12, 1)
+PRIVACY_ON <- switch(tolower(Sys.getenv("PUBLISH_PRIVACY", unset = "auto")),
+  on  = TRUE,
+  off = FALSE,
+  lubridate::month(lubridate::with_tz(now_utc, "America/Chicago")) %in% PUBLISH_PRIVACY_MONTHS
+)
+message("Hunting-season coordinate snapping: ", if (PRIVACY_ON) "ON" else "OFF")
 
 # ----------------------------
 # 1) Movebank login + pull data
@@ -99,7 +116,7 @@ gps <- df %>%
   arrange(device_id, timestamp)
 
 if (nrow(gps) == 0) {
-  stop("No GPS records returned for the last 7 days.")
+  stop("No GPS records returned for the last 30 days.")
 }
 
 # ----------------------------
@@ -216,11 +233,14 @@ dev_metrics <- gps_admin %>%
     .groups = "drop"
   ) %>%
   mutate(
+    # Either direction counts: requiring a northward change made every fall
+    # migrant "Transitional" (e.g. 1,271 km and -10.8 deg on 2026-10-26).
     migration_status = case_when(
-      net_km >= THRESH_NET_KM_MIGRATING & lat_change >= THRESH_LAT_CHANGE_DEG ~ "Migrating",
+      net_km >= THRESH_NET_KM_MIGRATING & abs(lat_change) >= THRESH_LAT_CHANGE_DEG ~ "Migrating",
       net_km >= THRESH_NET_KM_TRANSITIONAL ~ "Transitional",
       TRUE ~ "Local"
-    )
+    ),
+    direction = if_else(lat_change >= 0, "north", "south")
   ) %>%
   arrange(desc(net_km))
 
@@ -249,7 +269,7 @@ if (nrow(move_counts) > 0) {
   move_plot <- ggplot(move_counts, aes(x = reorder(transition, -n_devices), y = n_devices)) +
     geom_col(fill = "steelblue") +
     labs(
-      title = "Transmitter movements between states (last 7 days)",
+      title = "Transmitter movements between states (last 30 days)",
       x = "State transition",
       y = "Number of transmitters"
     ) +
@@ -342,7 +362,7 @@ try({
 # 6) Narrative generator
 # ----------------------------
 fmt_pct <- function(x) paste0(round(100 * x, 1), "%")
-fmt_km  <- function(x) format(round(x), big.mark = ",")
+fmt_km  <- function(x) format(round(x), big.mark = ",", trim = TRUE)
 
 n_devices <- n_distinct(device_current$device_id)
 n_fixes   <- nrow(gps_admin)
@@ -393,7 +413,9 @@ leaders_section <- if (nrow(leaders) > 0) {
     leaders$device_id,
     ": **",
     fmt_km(leaders$net_km),
-    " km** net, lat change **",
+    " km** net ",
+    leaders$direction,
+    ", lat change **",
     round(leaders$lat_change, 2),
     "°**, current admin area **",
     leaders$current_state,
@@ -403,30 +425,74 @@ leaders_section <- if (nrow(leaders) > 0) {
   "- No leader summaries available."
 }
 
+# Headline: direction of travel over the LAST 7 DAYS (ported from
+# MigrationDashboard). A move = net displacement >= THRESH_NET_KM_MIGRATING and
+# >= THRESH_LAT_CHANGE_DEG of latitude in that direction.
+week_moves <- gps_admin %>%
+  filter(timestamp >= now_utc - days(7)) %>%
+  group_by(device_id) %>%
+  arrange(timestamp, .by_group = TRUE) %>%
+  summarise(km   = haversine_km(first(lon), first(lat), last(lon), last(lat)),
+            dlat = last(lat) - first(lat), .groups = "drop")
+moved   <- week_moves$km >= THRESH_NET_KM_MIGRATING
+n_north <- sum(moved & week_moves$dlat >=  THRESH_LAT_CHANGE_DEG)
+n_south <- sum(moved & week_moves$dlat <= -THRESH_LAT_CHANGE_DEG)
+n_week  <- nrow(week_moves)
+n_word  <- function(n, dir) if (n == 0) paste("none moved", dir) else paste(n, "moved", dir)
+first_dir <- if (n_north > n_south) c("north", "south") else c("south", "north")
+first_n   <- if (n_north > n_south) c(n_north, n_south) else c(n_south, n_north)
+headline <- if (n_north + n_south == 0) {
+  paste0("None of the ", n_week, " transmitters reporting this week moved more than ",
+         THRESH_NET_KM_MIGRATING, " km north or south.")
+} else {
+  paste0("Of ", n_week, " transmitters reporting this week, ",
+         first_n[1], " moved ", THRESH_NET_KM_MIGRATING, "+ km ", first_dir[1],
+         " and ", n_word(first_n[2], first_dir[2]), ".")
+}
+message("Headline: ", headline)
+
+# Notes are built from this run's numbers, so they hold in any season.
+n_status <- function(s) sum(dev_metrics$migration_status == s)
+mig      <- dev_metrics %>% filter(migration_status == "Migrating")
+mig_dirs <- c(south = sum(mig$direction == "south"), north = sum(mig$direction == "north"))
+mig_dirs <- mig_dirs[mig_dirs > 0]
+notes <- paste0(
+  "State/province percentages reflect the **current location of each transmitter**, ",
+  "its most recent GPS fix in the 30-day window, rather than the total number of GPS fixes collected. ",
+  "Migration status compares each transmitter's first and last fix in the window: ",
+  "**Migrating** is ", THRESH_NET_KM_MIGRATING, "+ km with at least ", THRESH_LAT_CHANGE_DEG,
+  "° of latitude change in either direction, **Transitional** is ", THRESH_NET_KM_TRANSITIONAL,
+  "+ km without that, and **Local** is everything else. ",
+  if (nrow(mig) > 0) {
+    paste0(nrow(mig), " transmitter", if (nrow(mig) == 1) " is" else "s are",
+           " classed as migrating (", paste(mig_dirs, names(mig_dirs), collapse = ", "), "), ")
+  } else {
+    "No transmitters are classed as migrating, "
+  },
+  n_status("Transitional"), " transitional and ", n_status("Local"), " local."
+)
+
 md <- c(
   "# Weekly Mallard Migration Status",
   "",
   paste0("**Window:** ", window_str),
   paste0("**Transmitters reporting:** ", n_devices, "  |  **GPS fixes:** ", format(n_fixes, big.mark = ",")),
   "",
+  paste0("**This week:** ", headline),
+  "",
   "## Current state/province distribution (latest fix per transmitter)",
   "",
   state_section,
   "",
-  "## Migration status (by transmitter)",
+  "## Migration status (by transmitter, last 30 days)",
   "",
   status_section,
   "",
   "## Notes",
   "",
-  paste0(
-    "State/province percentages reflect the **current location of each transmitter** based on its most recent GPS fix within the last 7 days, rather than the total number of GPS fixes collected. ",
-    "Most transmitters continue to show **local late-winter movements** within primary wintering areas. ",
-    "A subset of birds are showing **transitional behavior** (larger net displacement without strong latitudinal gain), ",
-    "and the **leading edge of spring migration** is evident among birds with substantial northward movement over the last week."
-  ),
+  notes,
   "",
-  "## Leading movement this week (net displacement)",
+  "## Leading movement (net displacement, last 30 days)",
   "",
   leaders_section,
   ""
@@ -436,7 +502,7 @@ md <- c(
 if (!is.null(fig_rel)) {
   md <- c(
     md,
-    "## State-to-state movements (last 7 days)",
+    "## State-to-state movements (last 30 days)",
     "",
     paste0("![](", fig_rel, ")"),
     ""
@@ -468,6 +534,28 @@ if (!is.null(slider_rel)) {
 # ----------------------------
 # 7) Write outputs
 # ----------------------------
+# Coordinates reach the public site through device_state_province.csv,
+# device_migration_metrics.csv and weekly_summary.json (which embeds
+# device_props and leaders). Round every position column here, at the one
+# choke point, after `md` is built. Matches lat/lon and *_lat/*_lon only;
+# lat_change is a displacement, not a position, so it is left alone.
+round_positions <- function(df) {
+  df %>%
+    mutate(across(matches("(^|_)(lat|lon)$"), ~ round(.x, PUBLISH_COORD_DP))) %>%
+    # Full-precision displacements would sharpen the snapped positions.
+    mutate(across(any_of("net_km"), round), across(any_of("lat_change"), ~ round(.x, 2)))
+}
+# In hunting season every published position is snapped to the grid: the
+# latest fix is the most sensitive value, and a local bird's start point lies
+# near it too.
+snap_positions <- function(df) {
+  if (!PRIVACY_ON) return(df)
+  df %>% mutate(across(matches("(^|_)(lat|lon)$"), snap_grid))
+}
+device_props <- round_positions(snap_positions(device_props))
+dev_metrics  <- round_positions(snap_positions(dev_metrics))
+leaders      <- round_positions(snap_positions(leaders))
+
 write_csv(overall_props, file.path(out_dir_data, "state_province_proportions.csv"))
 write_csv(device_props,  file.path(out_dir_data, "device_state_province.csv"))
 write_csv(dev_metrics,   file.path(out_dir_data, "device_migration_metrics.csv"))
@@ -478,6 +566,10 @@ json_out <- list(
   window_end_utc   = format(now_utc, tz = "UTC", usetz = TRUE),
   n_devices = n_devices,
   n_fixes   = n_fixes,
+  headline     = headline,
+  n_north_week = n_north,
+  n_south_week = n_south,
+  privacy_on   = PRIVACY_ON,
   overall_state_province = overall_props,
   current_device_locations = device_props,
   migration_status = status_counts,
