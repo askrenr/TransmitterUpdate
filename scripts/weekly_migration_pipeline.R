@@ -373,7 +373,7 @@ status_counts <- dev_metrics %>%
   arrange(match(migration_status, c("Local", "Transitional", "Migrating")))
 
 top_states <- overall_props %>% slice_head(n = 6)
-leaders    <- dev_metrics %>% slice_head(n = min(3, nrow(dev_metrics)))
+leaders    <- dev_metrics %>% slice_head(n = min(5, nrow(dev_metrics)))
 
 window_str <- paste0(
   format(start_utc, "%Y-%m-%d"), " to ", format(now_utc, "%Y-%m-%d"), " (UTC)"
@@ -407,19 +407,13 @@ status_section <- if (nrow(status_counts) > 0) {
   "- No migration status available."
 }
 
+# Top movers table (as on MigrationDashboard), with direction of travel.
 leaders_section <- if (nrow(leaders) > 0) {
-  paste0(
-    "- ",
-    leaders$device_id,
-    ": **",
-    fmt_km(leaders$net_km),
-    " km** net ",
-    leaders$direction,
-    ", lat change **",
-    round(leaders$lat_change, 2),
-    "°**, current admin area **",
-    leaders$current_state,
-    "**"
+  c(
+    "| Bird ID | Net displacement (km) | Direction | Lat change (°) | Current location |",
+    "|:--|--:|:--|--:|:--|",
+    paste0("| ", leaders$device_id, " | ", fmt_km(leaders$net_km), " | ", leaders$direction,
+           " | ", round(leaders$lat_change, 2), " | ", leaders$current_state, " |")
   )
 } else {
   "- No leader summaries available."
@@ -472,6 +466,11 @@ notes <- paste0(
   n_status("Transitional"), " transitional and ", n_status("Local"), " local."
 )
 
+# Outlook, latitude-by-day and state-history figures from MigrationDashboard's
+# published data (scripts/dashboard_figures.R). They fail soft.
+source(file.path("scripts", "dashboard_figures.R"))
+dashboard_sections <- dashboard_figure_sections(out_dir_data, unique(dev_metrics$device_id))
+
 md <- c(
   "# Weekly Mallard Migration Status",
   "",
@@ -480,6 +479,7 @@ md <- c(
   "",
   paste0("**This week:** ", headline),
   "",
+  dashboard_sections,
   "## Current state/province distribution (latest fix per transmitter)",
   "",
   state_section,
@@ -492,7 +492,7 @@ md <- c(
   "",
   notes,
   "",
-  "## Leading movement (net displacement, last 30 days)",
+  "## Top movers (net displacement, last 30 days)",
   "",
   leaders_section,
   ""
