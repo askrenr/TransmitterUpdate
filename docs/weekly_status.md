@@ -1,9 +1,9 @@
 # Weekly Mallard Migration Status
 
 **Window:** 2026-09-27 to 2026-10-27 (UTC)
-**Transmitters reporting:** 31  |  **GPS fixes:** 20,367
+**Transmitters reporting:** 31  |  **GPS fixes:** 20,387
 
-**This week:** Of 29 transmitters reporting this week, 4 moved 150+ km south and none moved north.
+**This week:** Of 29 transmitters reporting this week, 3 moved 150+ km south and none moved north.
 
 ## Migration outlook (next 7 days)
 
@@ -37,21 +37,20 @@ _Transmitters by state/province in ISO week 44 of each year (top 10 by this year
 
 ## Migration status (by transmitter, last 30 days)
 
-- Local: 24 (77.4%)
-- Transitional: 1 (3.2%)
+- Local: 25 (80.6%)
 - Migrating: 6 (19.4%)
 
 ## Notes
 
-State/province percentages reflect the **current location of each transmitter**, its most recent GPS fix in the 30-day window, rather than the total number of GPS fixes collected. Migration status compares each transmitter's first and last fix in the window: **Migrating** is 150+ km with at least 1° of latitude change in either direction, **Transitional** is 60+ km without that, and **Local** is everything else. 6 transmitters are classed as migrating (6 south), 1 transitional and 24 local.
+State/province percentages reflect the **current location of each transmitter**, its most recent GPS fix in the 30-day window, rather than the total number of GPS fixes collected. Migration status compares each transmitter's first and last fix in the window: **Migrating** is 150+ km with at least 1° of latitude change in either direction, **Transitional** is 60+ km without that, and **Local** is everything else. 6 transmitters are classed as migrating (6 south), 0 transitional and 25 local.
 
 ## Top movers (net displacement, last 30 days)
 
 | Bird ID | Net displacement (km) | Direction | Lat change (°) | Current location |
 |:--|--:|:--|--:|:--|
-| 377547 | 1,670 | south | -14.32 | North Dakota |
+| 377547 | 1,675 | south | -14.41 | North Dakota |
 | 377542 | 1,258 | south | -9.77 | Saskatchewan |
-| 377538 | 837 | south | -6.64 | North Dakota |
+| 377538 | 837 | south | -6.63 | North Dakota |
 | 377523 | 359 | south | -2.53 | Saskatchewan |
 | 377529 | 262 | south | -2.22 | Alberta |
 
