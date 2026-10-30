@@ -1,7 +1,7 @@
 # Weekly Mallard Migration Status
 
-**Window:** 2026-09-29 to 2026-10-29 (UTC)
-**Transmitters reporting:** 31  |  **GPS fixes:** 19,933
+**Window:** 2026-09-30 to 2026-10-30 (UTC)
+**Transmitters reporting:** 31  |  **GPS fixes:** 20,100
 
 **This week:** Of 28 transmitters reporting this week, 3 moved 150+ km south and none moved north.
 
@@ -13,7 +13,7 @@
 
 **% = chance at least one tracked bird makes a big move that night.** Red bars: expected number of big moves south (150 km or more) each night. Green bars: expected number of birds arriving in the Lower Mississippi Valley. Days 4–7 (hatched) are lower confidence: wind forecasts beyond 3 days are less reliable.
 
-_Group forecast for the tracked birds only, from weather forecasts and past fall movements; each bird is scored from its last known area. Updated Oct 29, 7:37 AM CT._
+_Group forecast for the tracked birds only, from weather forecasts and past fall movements; each bird is scored from its last known area. Updated Oct 29, 1:33 PM CT._
 
 ## Latitude by day
 
@@ -50,9 +50,9 @@ State/province percentages reflect the **current location of each transmitter**,
 |:--|--:|:--|--:|:--|
 | 377547 | 1,676 | south | -14.41 | North Dakota |
 | 377542 | 1,260 | south | -9.79 | Saskatchewan |
-| 377538 | 843 | south | -6.82 | North Dakota |
+| 377538 | 845 | south | -6.83 | North Dakota |
 | 377523 | 357 | south | -2.52 | Saskatchewan |
-| 377529 | 268 | south | -2.26 | Alberta |
+| 377529 | 266 | south | -2.25 | Alberta |
 
 ## State-to-state movements (last 30 days)
 
