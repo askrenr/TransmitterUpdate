@@ -1,19 +1,19 @@
 # Weekly Mallard Migration Status
 
 **Window:** 2026-10-03 to 2026-11-02 (UTC)
-**Transmitters reporting:** 31  |  **GPS fixes:** 19,633
+**Transmitters reporting:** 31  |  **GPS fixes:** 19,689
 
 **This week:** None of the 27 transmitters reporting this week moved more than 150 km north or south.
 
 ## Migration outlook (next 7 days)
 
-**Next 7 days: about 6 of the 21 tracked birds not yet in the Lower Mississippi Valley expected to make a big move south (150 km or more).** Fewer than 1 expected to arrive in the Lower Mississippi Valley.
+**Next 7 days: about 8 of the 21 tracked birds not yet in the Lower Mississippi Valley expected to make a big move south (150 km or more).** Fewer than 1 expected to arrive in the Lower Mississippi Valley.
 
 <iframe src="data/fig_outlook.html" width="100%" height="350" style="border:0" loading="lazy"></iframe>
 
 **% = chance at least one tracked bird makes a big move that night.** Red bars: expected number of big moves south (150 km or more) each night. Green bars: expected number of birds arriving in the Lower Mississippi Valley. Days 4–7 (hatched) are lower confidence: wind forecasts beyond 3 days are less reliable.
 
-_Group forecast for the tracked birds only, from weather forecasts and past fall movements; each bird is scored from its last known area. Updated Nov 1, 12:26 PM CT._
+_Group forecast for the tracked birds only, from weather forecasts and past fall movements; each bird is scored from its last known area. Updated Nov 2, 6:33 AM CT._
 
 ## Latitude by day
 
@@ -48,11 +48,11 @@ State/province percentages reflect the **current location of each transmitter**,
 
 | Bird ID | Net displacement (km) | Direction | Lat change (°) | Current location |
 |:--|--:|:--|--:|:--|
-| 377547 | 1,676 | south | -14.41 | North Dakota |
+| 377547 | 1,675 | south | -14.41 | North Dakota |
 | 377542 | 1,254 | south | -9.71 | Saskatchewan |
 | 377538 | 837 | south | -6.63 | North Dakota |
-| 377523 | 356 | south | -2.51 | Saskatchewan |
-| 377529 | 263 | south | -2.23 | Alberta |
+| 377523 | 357 | south | -2.52 | Saskatchewan |
+| 377529 | 262 | south | -2.22 | Alberta |
 
 ## State-to-state movements (last 30 days)
 
