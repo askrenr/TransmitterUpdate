@@ -1,19 +1,19 @@
 # Weekly Mallard Migration Status
 
-**Window:** 2026-10-17 to 2026-11-16 (UTC)
-**Transmitters reporting:** 32  |  **GPS fixes:** 18,686
+**Window:** 2026-10-18 to 2026-11-17 (UTC)
+**Transmitters reporting:** 32  |  **GPS fixes:** 18,847
 
-**This week:** Of 25 transmitters reporting this week, 4 moved 150+ km south and none moved north.
+**This week:** Of 25 transmitters reporting this week, 2 moved 150+ km south and none moved north.
 
 ## Migration outlook (next 7 days)
 
-**Next 7 days: about 6 of the 12 tracked birds not yet in the Lower Mississippi Valley expected to make a big move south (150 km or more).** Almost none expected to arrive in the Lower Mississippi Valley.
+**Next 7 days: about 10 of the 21 tracked birds not yet in the Lower Mississippi Valley expected to make a big move south (150 km or more).** Fewer than 1 expected to arrive in the Lower Mississippi Valley.
 
 <iframe src="data/fig_outlook.html" width="100%" height="350" style="border:0" loading="lazy"></iframe>
 
 **% = chance at least one tracked bird makes a big move that night.** Red bars: expected number of big moves south (150 km or more) each night. Green bars: expected number of birds arriving in the Lower Mississippi Valley. Days 4–7 (hatched) are lower confidence: wind forecasts beyond 3 days are less reliable.
 
-_Group forecast for the tracked birds only, from weather forecasts and past fall movements; each bird is scored from its last known area. Updated Nov 16, 6:41 AM CT._
+_Group forecast for the tracked birds only, from weather forecasts and past fall movements; each bird is scored from its last known area. Updated Nov 16, 12:30 PM CT._
 
 ## Latitude by day
 
@@ -34,7 +34,7 @@ _Transmitters by state/province in ISO week 47 of each year (top 10 by this year
 - South Dakota: 9.4% (n=3)
 - Alberta: 6.2% (n=2)
 - Arkansas: 6.2% (n=2)
-- Manitoba: 3.1% (n=1)
+- Iowa: 3.1% (n=1)
 
 ## Migration status (by transmitter, last 30 days)
 
@@ -50,11 +50,11 @@ State/province percentages reflect the **current location of each transmitter**,
 
 | Bird ID | Net displacement (km) | Direction | Lat change (°) | Current location |
 |:--|--:|:--|--:|:--|
-| 247412 | 2,049 | south | -15.27 | Missouri |
+| 247412 | 2,048 | south | -15.26 | Missouri |
 | 370818 | 1,894 | south | -15.08 | Arkansas |
-| 247446 | 1,795 | south | -13.95 | Arkansas |
-| 377542 | 1,088 | south | -8.36 | Saskatchewan |
-| 247414 | 985 | south | -7.15 | South Dakota |
+| 247446 | 1,800 | south | -13.97 | Arkansas |
+| 247414 | 985 | south | -7.16 | South Dakota |
+| 377521 | 907 | south | -5.36 | North Dakota |
 
 ## State-to-state movements (last 30 days)
 
