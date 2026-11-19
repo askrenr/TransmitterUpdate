@@ -1,19 +1,19 @@
 # Weekly Mallard Migration Status
 
-**Window:** 2026-10-19 to 2026-11-18 (UTC)
-**Transmitters reporting:** 32  |  **GPS fixes:** 18,539
+**Window:** 2026-10-20 to 2026-11-19 (UTC)
+**Transmitters reporting:** 32  |  **GPS fixes:** 19,041
 
-**This week:** Of 25 transmitters reporting this week, 1 moved 150+ km south and none moved north.
+**This week:** None of the 25 transmitters reporting this week moved more than 150 km north or south.
 
 ## Migration outlook (next 7 days)
 
-**Next 7 days: about 11 of the 19 tracked birds not yet in the Lower Mississippi Valley expected to make a big move south (150 km or more).** Almost none expected to arrive in the Lower Mississippi Valley.
+**Next 7 days: about 9 of the 17 tracked birds not yet in the Lower Mississippi Valley expected to make a big move south (150 km or more).** Almost none expected to arrive in the Lower Mississippi Valley.
 
 <iframe src="data/fig_outlook.html" width="100%" height="350" style="border:0" loading="lazy"></iframe>
 
 **% = chance at least one tracked bird makes a big move that night.** Red bars: expected number of big moves south (150 km or more) each night. Green bars: expected number of birds arriving in the Lower Mississippi Valley. Days 4–7 (hatched) are lower confidence: wind forecasts beyond 3 days are less reliable.
 
-_Group forecast for the tracked birds only, from weather forecasts and past fall movements; each bird is scored from its last known area. Updated Nov 18, 6:31 AM CT._
+_Group forecast for the tracked birds only, from weather forecasts and past fall movements; each bird is scored from its last known area. Updated Nov 19, 12:29 PM CT._
 
 ## Latitude by day
 
@@ -38,21 +38,21 @@ _Transmitters by state/province in ISO week 47 of each year (top 10 by this year
 
 ## Migration status (by transmitter, last 30 days)
 
-- Local: 17 (53.1%)
-- Transitional: 1 (3.1%)
-- Migrating: 14 (43.8%)
+- Local: 16 (50%)
+- Transitional: 3 (9.4%)
+- Migrating: 13 (40.6%)
 
 ## Notes
 
-State/province percentages reflect the **current location of each transmitter**, its most recent GPS fix in the 30-day window, rather than the total number of GPS fixes collected. Migration status compares each transmitter's first and last fix in the window: **Migrating** is 150+ km with at least 1° of latitude change in either direction, **Transitional** is 60+ km without that, and **Local** is everything else. 14 transmitters are classed as migrating (14 south), 1 transitional and 17 local.
+State/province percentages reflect the **current location of each transmitter**, its most recent GPS fix in the 30-day window, rather than the total number of GPS fixes collected. Migration status compares each transmitter's first and last fix in the window: **Migrating** is 150+ km with at least 1° of latitude change in either direction, **Transitional** is 60+ km without that, and **Local** is everything else. 13 transmitters are classed as migrating (13 south), 3 transitional and 16 local.
 
 ## Top movers (net displacement, last 30 days)
 
 | Bird ID | Net displacement (km) | Direction | Lat change (°) | Current location |
 |:--|--:|:--|--:|:--|
-| 247412 | 2,049 | south | -15.26 | Missouri |
-| 370818 | 1,898 | south | -15.09 | Arkansas |
-| 247446 | 1,799 | south | -13.97 | Arkansas |
+| 247412 | 2,047 | south | -15.25 | Missouri |
+| 370818 | 1,893 | south | -15.05 | Arkansas |
+| 247446 | 1,795 | south | -13.95 | Arkansas |
 | 247414 | 986 | south | -7.16 | South Dakota |
 | 377521 | 905 | south | -5.34 | North Dakota |
 
