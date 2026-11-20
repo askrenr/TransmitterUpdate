@@ -1,9 +1,9 @@
 # Weekly Mallard Migration Status
 
-**Window:** 2026-10-20 to 2026-11-19 (UTC)
-**Transmitters reporting:** 32  |  **GPS fixes:** 19,041
+**Window:** 2026-10-21 to 2026-11-20 (UTC)
+**Transmitters reporting:** 32  |  **GPS fixes:** 19,117
 
-**This week:** None of the 25 transmitters reporting this week moved more than 150 km north or south.
+**This week:** Of 26 transmitters reporting this week, 3 moved 150+ km south and none moved north.
 
 ## Migration outlook (next 7 days)
 
@@ -31,30 +31,30 @@ _Transmitters by state/province in ISO week 47 of each year (top 10 by this year
 
 - Saskatchewan: 37.5% (n=12)
 - North Dakota: 31.2% (n=10)
-- South Dakota: 9.4% (n=3)
-- Alberta: 6.2% (n=2)
+- Iowa: 9.4% (n=3)
 - Arkansas: 6.2% (n=2)
-- Iowa: 3.1% (n=1)
+- South Dakota: 6.2% (n=2)
+- Alberta: 3.1% (n=1)
 
 ## Migration status (by transmitter, last 30 days)
 
 - Local: 16 (50%)
-- Transitional: 3 (9.4%)
-- Migrating: 13 (40.6%)
+- Transitional: 2 (6.2%)
+- Migrating: 14 (43.8%)
 
 ## Notes
 
-State/province percentages reflect the **current location of each transmitter**, its most recent GPS fix in the 30-day window, rather than the total number of GPS fixes collected. Migration status compares each transmitter's first and last fix in the window: **Migrating** is 150+ km with at least 1° of latitude change in either direction, **Transitional** is 60+ km without that, and **Local** is everything else. 13 transmitters are classed as migrating (13 south), 3 transitional and 16 local.
+State/province percentages reflect the **current location of each transmitter**, its most recent GPS fix in the 30-day window, rather than the total number of GPS fixes collected. Migration status compares each transmitter's first and last fix in the window: **Migrating** is 150+ km with at least 1° of latitude change in either direction, **Transitional** is 60+ km without that, and **Local** is everything else. 14 transmitters are classed as migrating (14 south), 2 transitional and 16 local.
 
 ## Top movers (net displacement, last 30 days)
 
 | Bird ID | Net displacement (km) | Direction | Lat change (°) | Current location |
 |:--|--:|:--|--:|:--|
-| 247412 | 2,047 | south | -15.25 | Missouri |
-| 370818 | 1,893 | south | -15.05 | Arkansas |
-| 247446 | 1,795 | south | -13.95 | Arkansas |
-| 247414 | 986 | south | -7.16 | South Dakota |
-| 377521 | 905 | south | -5.34 | North Dakota |
+| 247412 | 2,047 | south | -15.24 | Missouri |
+| 370818 | 1,898 | south | -15.1 | Arkansas |
+| 247446 | 1,797 | south | -13.97 | Arkansas |
+| 377529 | 1,389 | south | -10.69 | North Dakota |
+| 247414 | 1,368 | south | -9.2 | Iowa |
 
 ## State-to-state movements (last 30 days)
 
