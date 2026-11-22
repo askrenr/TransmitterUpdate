@@ -1,19 +1,19 @@
 # Weekly Mallard Migration Status
 
 **Window:** 2026-10-23 to 2026-11-22 (UTC)
-**Transmitters reporting:** 32  |  **GPS fixes:** 18,902
+**Transmitters reporting:** 32  |  **GPS fixes:** 18,776
 
-**This week:** Of 26 transmitters reporting this week, 4 moved 150+ km south and none moved north.
+**This week:** Of 25 transmitters reporting this week, 4 moved 150+ km south and none moved north.
 
 ## Migration outlook (next 7 days)
 
-**Next 7 days: about 10 of the 19 tracked birds not yet in the Lower Mississippi Valley expected to make a big move south (150 km or more).** Fewer than 1 expected to arrive in the Lower Mississippi Valley.
+**Next 7 days: about 10 of the 18 tracked birds not yet in the Lower Mississippi Valley expected to make a big move south (150 km or more).** Fewer than 1 expected to arrive in the Lower Mississippi Valley.
 
 <iframe src="data/fig_outlook.html" width="100%" height="350" style="border:0" loading="lazy"></iframe>
 
 **% = chance at least one tracked bird makes a big move that night.** Red bars: expected number of big moves south (150 km or more) each night. Green bars: expected number of birds arriving in the Lower Mississippi Valley. Days 4–7 (hatched) are lower confidence: wind forecasts beyond 3 days are less reliable.
 
-_Group forecast for the tracked birds only, from weather forecasts and past fall movements; each bird is scored from its last known area. Updated Nov 21, 12:27 PM CT._
+_Group forecast for the tracked birds only, from weather forecasts and past fall movements; each bird is scored from its last known area. Updated Nov 22, 6:31 AM CT._
 
 ## Latitude by day
 
@@ -32,7 +32,7 @@ _Transmitters by state/province in ISO week 47 of each year (top 10 by this year
 - Saskatchewan: 34.4% (n=11)
 - North Dakota: 31.2% (n=10)
 - Arkansas: 6.2% (n=2)
-- Iowa: 6.2% (n=2)
+- Missouri: 6.2% (n=2)
 - South Dakota: 6.2% (n=2)
 - Alberta: 3.1% (n=1)
 
@@ -50,11 +50,11 @@ State/province percentages reflect the **current location of each transmitter**,
 
 | Bird ID | Net displacement (km) | Direction | Lat change (°) | Current location |
 |:--|--:|:--|--:|:--|
-| 247412 | 2,049 | south | -15.26 | Missouri |
-| 370818 | 1,894 | south | -15.06 | Arkansas |
-| 247446 | 1,797 | south | -13.97 | Arkansas |
+| 247412 | 2,047 | south | -15.25 | Missouri |
+| 370818 | 1,898 | south | -15.09 | Arkansas |
+| 247446 | 1,796 | south | -13.96 | Arkansas |
 | 377523 | 1,642 | south | -12.44 | Nebraska |
-| 247414 | 1,379 | south | -9.33 | Iowa |
+| 247414 | 1,630 | south | -11.83 | Missouri |
 
 ## State-to-state movements (last 30 days)
 
