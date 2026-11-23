@@ -1,9 +1,9 @@
 # Weekly Mallard Migration Status
 
 **Window:** 2026-10-24 to 2026-11-23 (UTC)
-**Transmitters reporting:** 32  |  **GPS fixes:** 18,971
+**Transmitters reporting:** 32  |  **GPS fixes:** 19,377
 
-**This week:** Of 25 transmitters reporting this week, 9 moved 150+ km south and none moved north.
+**This week:** Of 26 transmitters reporting this week, 12 moved 150+ km south and none moved north.
 
 ## Migration outlook (next 7 days)
 
@@ -29,31 +29,31 @@ _Transmitters by state/province in ISO week 48 of each year (top 10 by this year
 
 ## Current state/province distribution (latest fix per transmitter)
 
-- North Dakota: 37.5% (n=12)
-- Saskatchewan: 25% (n=8)
-- Arkansas: 9.4% (n=3)
+- North Dakota: 34.4% (n=11)
+- Saskatchewan: 21.9% (n=7)
+- Arkansas: 12.5% (n=4)
+- South Dakota: 9.4% (n=3)
+- Iowa: 6.2% (n=2)
 - Minnesota: 6.2% (n=2)
-- Missouri: 6.2% (n=2)
-- South Dakota: 6.2% (n=2)
 
 ## Migration status (by transmitter, last 30 days)
 
-- Local: 14 (43.8%)
+- Local: 12 (37.5%)
 - Transitional: 1 (3.1%)
-- Migrating: 17 (53.1%)
+- Migrating: 19 (59.4%)
 
 ## Notes
 
-State/province percentages reflect the **current location of each transmitter**, its most recent GPS fix in the 30-day window, rather than the total number of GPS fixes collected. Migration status compares each transmitter's first and last fix in the window: **Migrating** is 150+ km with at least 1° of latitude change in either direction, **Transitional** is 60+ km without that, and **Local** is everything else. 17 transmitters are classed as migrating (17 south), 1 transitional and 14 local.
+State/province percentages reflect the **current location of each transmitter**, its most recent GPS fix in the 30-day window, rather than the total number of GPS fixes collected. Migration status compares each transmitter's first and last fix in the window: **Migrating** is 150+ km with at least 1° of latitude change in either direction, **Transitional** is 60+ km without that, and **Local** is everything else. 19 transmitters are classed as migrating (19 south), 1 transitional and 12 local.
 
 ## Top movers (net displacement, last 30 days)
 
 | Bird ID | Net displacement (km) | Direction | Lat change (°) | Current location |
 |:--|--:|:--|--:|:--|
-| 247414 | 2,171 | south | -16.67 | Arkansas |
+| 377523 | 2,506 | south | -18.86 | Arkansas |
+| 247414 | 2,170 | south | -16.67 | Arkansas |
 | 247412 | 2,047 | south | -15.25 | Missouri |
-| 377523 | 1,913 | south | -14.34 | Missouri |
-| 370818 | 1,892 | south | -15.05 | Arkansas |
+| 370818 | 1,891 | south | -15.04 | Arkansas |
 | 247446 | 1,799 | south | -13.97 | Arkansas |
 
 ## State-to-state movements (last 30 days)
