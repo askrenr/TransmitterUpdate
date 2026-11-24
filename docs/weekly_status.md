@@ -1,19 +1,19 @@
 # Weekly Mallard Migration Status
 
-**Window:** 2026-10-24 to 2026-11-23 (UTC)
-**Transmitters reporting:** 32  |  **GPS fixes:** 19,377
+**Window:** 2026-10-25 to 2026-11-24 (UTC)
+**Transmitters reporting:** 32  |  **GPS fixes:** 19,572
 
-**This week:** Of 26 transmitters reporting this week, 12 moved 150+ km south and none moved north.
+**This week:** Of 27 transmitters reporting this week, 15 moved 150+ km south and none moved north.
 
 ## Migration outlook (next 7 days)
 
-**Next 7 days: about 9 of the 18 tracked birds not yet in the Lower Mississippi Valley expected to make a big move south (150 km or more).** Fewer than 1 expected to arrive in the Lower Mississippi Valley.
+**Next 7 days: about 4 of the 15 tracked birds not yet in the Lower Mississippi Valley expected to make a big move south (150 km or more).** Fewer than 1 expected to arrive in the Lower Mississippi Valley.
 
 <iframe src="data/fig_outlook.html" width="100%" height="350" style="border:0" loading="lazy"></iframe>
 
 **% = chance at least one tracked bird makes a big move that night.** Red bars: expected number of big moves south (150 km or more) each night. Green bars: expected number of birds arriving in the Lower Mississippi Valley. Days 4–7 (hatched) are lower confidence: wind forecasts beyond 3 days are less reliable.
 
-_Group forecast for the tracked birds only, from weather forecasts and past fall movements; each bird is scored from its last known area. Updated Nov 22, 12:27 PM CT._
+_Group forecast for the tracked birds only, from weather forecasts and past fall movements; each bird is scored from its last known area. Updated Nov 23, 12:30 PM CT._
 
 ## Latitude by day
 
@@ -29,32 +29,32 @@ _Transmitters by state/province in ISO week 48 of each year (top 10 by this year
 
 ## Current state/province distribution (latest fix per transmitter)
 
-- North Dakota: 34.4% (n=11)
-- Saskatchewan: 21.9% (n=7)
-- Arkansas: 12.5% (n=4)
+- North Dakota: 28.1% (n=9)
+- Arkansas: 18.8% (n=6)
+- Saskatchewan: 15.6% (n=5)
+- Iowa: 12.5% (n=4)
+- Missouri: 9.4% (n=3)
 - South Dakota: 9.4% (n=3)
-- Iowa: 6.2% (n=2)
-- Minnesota: 6.2% (n=2)
 
 ## Migration status (by transmitter, last 30 days)
 
-- Local: 12 (37.5%)
+- Local: 10 (31.2%)
 - Transitional: 1 (3.1%)
-- Migrating: 19 (59.4%)
+- Migrating: 21 (65.6%)
 
 ## Notes
 
-State/province percentages reflect the **current location of each transmitter**, its most recent GPS fix in the 30-day window, rather than the total number of GPS fixes collected. Migration status compares each transmitter's first and last fix in the window: **Migrating** is 150+ km with at least 1° of latitude change in either direction, **Transitional** is 60+ km without that, and **Local** is everything else. 19 transmitters are classed as migrating (19 south), 1 transitional and 12 local.
+State/province percentages reflect the **current location of each transmitter**, its most recent GPS fix in the 30-day window, rather than the total number of GPS fixes collected. Migration status compares each transmitter's first and last fix in the window: **Migrating** is 150+ km with at least 1° of latitude change in either direction, **Transitional** is 60+ km without that, and **Local** is everything else. 21 transmitters are classed as migrating (21 south), 1 transitional and 10 local.
 
 ## Top movers (net displacement, last 30 days)
 
 | Bird ID | Net displacement (km) | Direction | Lat change (°) | Current location |
 |:--|--:|:--|--:|:--|
-| 377523 | 2,506 | south | -18.86 | Arkansas |
-| 247414 | 2,170 | south | -16.67 | Arkansas |
+| 377511 | 2,399 | south | -18.43 | Arkansas |
+| 247414 | 2,171 | south | -16.67 | Arkansas |
+| 377523 | 2,170 | south | -16.45 | Arkansas |
 | 247412 | 2,047 | south | -15.25 | Missouri |
-| 370818 | 1,891 | south | -15.04 | Arkansas |
-| 247446 | 1,799 | south | -13.97 | Arkansas |
+| 370818 | 1,892 | south | -15.05 | Arkansas |
 
 ## State-to-state movements (last 30 days)
 
