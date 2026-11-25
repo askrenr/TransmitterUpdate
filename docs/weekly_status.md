@@ -1,9 +1,9 @@
 # Weekly Mallard Migration Status
 
-**Window:** 2026-10-25 to 2026-11-24 (UTC)
-**Transmitters reporting:** 32  |  **GPS fixes:** 19,525
+**Window:** 2026-10-26 to 2026-11-25 (UTC)
+**Transmitters reporting:** 31  |  **GPS fixes:** 19,567
 
-**This week:** Of 27 transmitters reporting this week, 16 moved 150+ km south and none moved north.
+**This week:** Of 27 transmitters reporting this week, 15 moved 150+ km south and none moved north.
 
 ## Migration outlook (next 7 days)
 
@@ -29,31 +29,31 @@ _Transmitters by state/province in ISO week 48 of each year (top 10 by this year
 
 ## Current state/province distribution (latest fix per transmitter)
 
-- North Dakota: 25% (n=8)
-- Arkansas: 18.8% (n=6)
-- Missouri: 15.6% (n=5)
-- Saskatchewan: 15.6% (n=5)
-- Iowa: 12.5% (n=4)
-- South Dakota: 9.4% (n=3)
+- North Dakota: 25.8% (n=8)
+- Arkansas: 19.4% (n=6)
+- Iowa: 12.9% (n=4)
+- Missouri: 12.9% (n=4)
+- Saskatchewan: 12.9% (n=4)
+- South Dakota: 9.7% (n=3)
 
 ## Migration status (by transmitter, last 30 days)
 
-- Local: 9 (28.1%)
-- Transitional: 1 (3.1%)
-- Migrating: 22 (68.8%)
+- Local: 8 (25.8%)
+- Transitional: 2 (6.5%)
+- Migrating: 21 (67.7%)
 
 ## Notes
 
-State/province percentages reflect the **current location of each transmitter**, its most recent GPS fix in the 30-day window, rather than the total number of GPS fixes collected. Migration status compares each transmitter's first and last fix in the window: **Migrating** is 150+ km with at least 1° of latitude change in either direction, **Transitional** is 60+ km without that, and **Local** is everything else. 22 transmitters are classed as migrating (22 south), 1 transitional and 9 local.
+State/province percentages reflect the **current location of each transmitter**, its most recent GPS fix in the 30-day window, rather than the total number of GPS fixes collected. Migration status compares each transmitter's first and last fix in the window: **Migrating** is 150+ km with at least 1° of latitude change in either direction, **Transitional** is 60+ km without that, and **Local** is everything else. 21 transmitters are classed as migrating (21 south), 2 transitional and 8 local.
 
 ## Top movers (net displacement, last 30 days)
 
 | Bird ID | Net displacement (km) | Direction | Lat change (°) | Current location |
 |:--|--:|:--|--:|:--|
 | 377511 | 2,399 | south | -18.43 | Arkansas |
-| 247414 | 2,170 | south | -16.67 | Arkansas |
+| 247414 | 2,197 | south | -16.96 | Arkansas |
 | 377523 | 2,149 | south | -16.35 | Arkansas |
-| 247412 | 2,048 | south | -15.25 | Missouri |
+| 247412 | 2,047 | south | -15.25 | Missouri |
 | 370818 | 1,893 | south | -15.05 | Arkansas |
 
 ## State-to-state movements (last 30 days)
