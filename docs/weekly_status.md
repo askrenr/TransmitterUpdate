@@ -1,7 +1,7 @@
 # Weekly Mallard Migration Status
 
-**Window:** 2026-10-27 to 2026-11-26 (UTC)
-**Transmitters reporting:** 31  |  **GPS fixes:** 19,445
+**Window:** 2026-10-28 to 2026-11-27 (UTC)
+**Transmitters reporting:** 31  |  **GPS fixes:** 19,608
 
 **This week:** Of 27 transmitters reporting this week, 15 moved 150+ km south and none moved north.
 
@@ -13,7 +13,7 @@
 
 **% = chance at least one tracked bird makes a big move that night.** Red bars: expected number of big moves south (150 km or more) each night. Green bars: expected number of birds arriving in the Lower Mississippi Valley. Days 4–7 (hatched) are lower confidence: wind forecasts beyond 3 days are less reliable.
 
-_Group forecast for the tracked birds only, from weather forecasts and past fall movements; each bird is scored from its last known area. Updated Nov 26, 6:33 AM CT._
+_Group forecast for the tracked birds only, from weather forecasts and past fall movements; each bird is scored from its last known area. Updated Nov 26, 12:27 PM CT._
 
 ## Latitude by day
 
@@ -32,9 +32,9 @@ _Transmitters by state/province in ISO week 48 of each year (top 10 by this year
 - North Dakota: 22.6% (n=7)
 - Arkansas: 19.4% (n=6)
 - Missouri: 19.4% (n=6)
+- Iowa: 12.9% (n=4)
 - Saskatchewan: 12.9% (n=4)
-- Iowa: 9.7% (n=3)
-- South Dakota: 9.7% (n=3)
+- South Dakota: 6.5% (n=2)
 
 ## Migration status (by transmitter, last 30 days)
 
@@ -52,8 +52,8 @@ State/province percentages reflect the **current location of each transmitter**,
 |:--|--:|:--|--:|:--|
 | 377511 | 2,399 | south | -18.42 | Arkansas |
 | 247414 | 2,196 | south | -16.96 | Arkansas |
-| 377523 | 2,151 | south | -16.36 | Arkansas |
-| 247412 | 2,046 | south | -15.23 | Missouri |
+| 377523 | 2,144 | south | -16.31 | Arkansas |
+| 247412 | 2,047 | south | -15.25 | Missouri |
 | 370818 | 1,891 | south | -15.04 | Arkansas |
 
 ## State-to-state movements (last 30 days)
