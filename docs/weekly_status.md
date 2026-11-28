@@ -1,9 +1,9 @@
 # Weekly Mallard Migration Status
 
-**Window:** 2026-10-28 to 2026-11-27 (UTC)
-**Transmitters reporting:** 31  |  **GPS fixes:** 19,509
+**Window:** 2026-10-29 to 2026-11-28 (UTC)
+**Transmitters reporting:** 31  |  **GPS fixes:** 19,401
 
-**This week:** Of 27 transmitters reporting this week, 15 moved 150+ km south and none moved north.
+**This week:** Of 25 transmitters reporting this week, 17 moved 150+ km south and none moved north.
 
 ## Migration outlook (next 7 days)
 
@@ -13,7 +13,7 @@
 
 **% = chance at least one tracked bird makes a big move that night.** Red bars: expected number of big moves south (150 km or more) each night. Green bars: expected number of birds arriving in the Lower Mississippi Valley. Days 4–7 (hatched) are lower confidence: wind forecasts beyond 3 days are less reliable.
 
-_Group forecast for the tracked birds only, from weather forecasts and past fall movements; each bird is scored from its last known area. Updated Nov 27, 6:31 AM CT._
+_Group forecast for the tracked birds only, from weather forecasts and past fall movements; each bird is scored from its last known area. Updated Nov 27, 12:27 PM CT._
 
 ## Latitude by day
 
@@ -29,12 +29,12 @@ _Transmitters by state/province in ISO week 48 of each year (top 10 by this year
 
 ## Current state/province distribution (latest fix per transmitter)
 
-- North Dakota: 22.6% (n=7)
+- Missouri: 22.6% (n=7)
 - Arkansas: 19.4% (n=6)
-- Missouri: 19.4% (n=6)
+- North Dakota: 19.4% (n=6)
 - Iowa: 12.9% (n=4)
-- Saskatchewan: 12.9% (n=4)
-- South Dakota: 6.5% (n=2)
+- Saskatchewan: 9.7% (n=3)
+- South Dakota: 9.7% (n=3)
 
 ## Migration status (by transmitter, last 30 days)
 
@@ -50,11 +50,11 @@ State/province percentages reflect the **current location of each transmitter**,
 
 | Bird ID | Net displacement (km) | Direction | Lat change (°) | Current location |
 |:--|--:|:--|--:|:--|
-| 377511 | 2,399 | south | -18.42 | Arkansas |
-| 247414 | 2,196 | south | -16.96 | Arkansas |
-| 377523 | 2,145 | south | -16.32 | Arkansas |
+| 377511 | 2,399 | south | -18.43 | Arkansas |
+| 377529 | 2,213 | south | -16.56 | Iowa |
+| 247414 | 2,204 | south | -17.02 | Arkansas |
+| 377523 | 2,146 | south | -16.32 | Arkansas |
 | 247412 | 2,047 | south | -15.25 | Missouri |
-| 370818 | 1,890 | south | -15.03 | Arkansas |
 
 ## State-to-state movements (last 30 days)
 
